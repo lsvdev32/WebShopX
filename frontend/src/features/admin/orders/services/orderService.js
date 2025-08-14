@@ -1,4 +1,4 @@
-import axios from 'axios'
+import api from '@/api/api.js'
 
 /**
  * Servicio para manejar operaciones relacionadas con órdenes
@@ -11,7 +11,7 @@ import axios from 'axios'
  * @returns {Promise} Lista de órdenes
  */
 export const fetchOrders = async (token) => {
-  const { data } = await axios.get('/api/orders', {
+  const { data } = await api.get('/api/orders', {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data
@@ -24,7 +24,7 @@ export const fetchOrders = async (token) => {
  * @returns {Promise} Respuesta de la actualización
  */
 export const markOrderAsDelivered = async (orderId, token) => {
-  const { data } = await axios.put(`/api/orders/admin/${orderId}/deliver`, {}, {
+  const { data } = await api.put(`/api/orders/admin/${orderId}/deliver`, {}, {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data
@@ -37,7 +37,7 @@ export const markOrderAsDelivered = async (orderId, token) => {
  * @returns {Promise} Respuesta de la eliminación
  */
 export const deleteOrder = async (orderId, token) => {
-  await axios.delete(`/api/orders/admin/${orderId}`, {
+  await api.delete(`/api/orders/admin/${orderId}`, {
     headers: { Authorization: `Bearer ${token}` }
   })
 }

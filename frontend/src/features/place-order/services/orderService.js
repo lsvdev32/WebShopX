@@ -1,4 +1,4 @@
-import axios from 'axios'
+import api from '@/api/api.js'
 
 /**
  * Servicio para manejar operaciones relacionadas con la creación de órdenes
@@ -12,7 +12,7 @@ import axios from 'axios'
  * @returns {Promise} Datos de la orden creada
  */
 export const createOrder = async (orderData, token) => {
-  const { data } = await axios.post('/api/orders', orderData, {
+  const { data } = await api.post('/api/orders', orderData, {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data

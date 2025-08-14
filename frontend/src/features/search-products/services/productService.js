@@ -1,4 +1,4 @@
-import axios from 'axios'
+import api from '@/api/api'
 
 /**
  * Servicio para manejar operaciones relacionadas con productos
@@ -18,7 +18,7 @@ import axios from 'axios'
  * @returns {Promise} Resultados de la búsqueda
  */
 export const searchProducts = async ({ page, query, category, price, rating, order, limit }) => {
-  const { data } = await axios.get(
+  const { data } = await api.get(
     `/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}&limit=${limit}`
   )
   return data
@@ -29,6 +29,6 @@ export const searchProducts = async ({ page, query, category, price, rating, ord
  * @returns {Promise} Lista de categorías
  */
 export const fetchCategories = async () => {
-  const { data } = await axios.get('/api/products/categories')
+  const { data } = await api.get('/api/products/categories')
   return data
 }

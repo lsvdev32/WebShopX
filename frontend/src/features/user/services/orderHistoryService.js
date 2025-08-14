@@ -1,4 +1,4 @@
-import axios from 'axios'
+import api from '@/api/api'
 
 /**
  * Servicio para manejar operaciones relacionadas con el historial de órdenes
@@ -11,7 +11,7 @@ import axios from 'axios'
  * @returns {Promise} Lista de órdenes
  */
 export const fetchUserOrders = async (token) => {
-  const { data } = await axios.get('/api/orders/mine', {
+  const { data } = await api.get('/api/orders/mine', {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data

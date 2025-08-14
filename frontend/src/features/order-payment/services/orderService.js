@@ -1,4 +1,4 @@
-import axios from 'axios'
+import api from '@/api/api.js'
 
 /**
  * Servicio para manejar operaciones relacionadas con órdenes y pagos
@@ -12,7 +12,7 @@ import axios from 'axios'
  * @returns {Promise} Datos de la orden
  */
 export const fetchOrder = async (orderId, token) => {
-  const { data } = await axios.get(`/api/orders/${orderId}`, {
+  const { data } = await api.get(`/api/orders/${orderId}`, {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data
@@ -24,7 +24,7 @@ export const fetchOrder = async (orderId, token) => {
  * @returns {Promise} Clave del cliente de PayPal
  */
 export const fetchPayPalClientId = async (token) => {
-  const { data } = await axios.get('/api/keys/paypal', {
+  const { data } = await api.get('/api/keys/paypal', {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data
@@ -38,7 +38,7 @@ export const fetchPayPalClientId = async (token) => {
  * @returns {Promise} Datos de la orden actualizada
  */
 export const payOrder = async (orderId, paymentDetails, token) => {
-  const { data } = await axios.put(`/api/orders/${orderId}/pay`, paymentDetails, {
+  const { data } = await api.put(`/api/orders/${orderId}/pay`, paymentDetails, {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data
@@ -51,7 +51,7 @@ export const payOrder = async (orderId, paymentDetails, token) => {
 export const fetchConversionRate = async () => {
   try {
     const apiKey = import.meta.env.VITE_EXCHANGERATE_API_KEY || 'YOUR_EXCHANGERATE_API_KEY'
-    const { data } = await axios.get(`https://api.exchangerate-api.com/v4/latest/COP?apiKey=${apiKey}`)
+    const { data } = await api.get(`https://api.exchangerate-api.com/v4/latest/COP?apiKey=${apiKey}`)
     return data.rates.USD
   } catch (err) {
     console.error('Error fetching conversion rate:', err)

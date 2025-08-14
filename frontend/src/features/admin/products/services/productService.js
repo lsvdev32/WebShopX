@@ -1,4 +1,4 @@
-import axios from 'axios'
+import api from '@/api/api.js'
 
 /**
  * Servicio para manejar operaciones relacionadas con productos
@@ -11,7 +11,7 @@ import axios from 'axios'
  * @returns {Promise} Lista de productos
  */
 export const fetchProducts = async (token) => {
-  const { data } = await axios.get('/api/products/recent', {
+  const { data } = await api.get('/api/products/recent', {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data
@@ -24,7 +24,7 @@ export const fetchProducts = async (token) => {
  * @returns {Promise} Respuesta de la eliminación
  */
 export const deleteProduct = async (productId, token) => {
-  await axios.delete(`/api/products/admin/${productId}`, {
+  await api.delete(`/api/products/admin/${productId}`, {
     headers: { Authorization: `Bearer ${token}` }
   })
 }
@@ -36,7 +36,7 @@ export const deleteProduct = async (productId, token) => {
  * @returns {Promise} Datos del producto creado
  */
 export const createProduct = async (productData, token) => {
-  const { data } = await axios.post('/api/products/admin/create', productData, {
+  const { data } = await api.post('/api/products/admin/create', productData, {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data
@@ -50,7 +50,7 @@ export const createProduct = async (productData, token) => {
  * @returns {Promise} Datos del producto actualizado
  */
 export const updateProduct = async (productId, productData, token) => {
-  const { data } = await axios.put(`/api/products/admin/${productId}`, productData, {
+  const { data } = await api.put(`/api/products/admin/${productId}`, productData, {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data
@@ -66,7 +66,7 @@ export const uploadProductImages = async (files, token) => {
   const uploadPromises = [...files].map(file => {
     const bodyFormData = new FormData()
     bodyFormData.append('file', file)
-    return axios.post('/api/upload', bodyFormData, {
+    return api.post('/api/upload', bodyFormData, {
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${token}`

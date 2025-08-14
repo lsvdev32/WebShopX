@@ -1,5 +1,4 @@
-import axios from 'axios'
-
+import api from '@/api/api.js'
 /**
  * Servicio para manejar operaciones relacionadas con la página de inicio
  * @module homeService
@@ -10,7 +9,7 @@ import axios from 'axios'
  * @returns {Promise} Lista de productos más vendidos
  */
 export const fetchTopSellingProducts = async () => {
-  const { data } = await axios.get('/api/products/top-selling')
+  const { data } = await api.get('/api/products/top-selling')
   return data
 }
 
@@ -19,7 +18,7 @@ export const fetchTopSellingProducts = async () => {
  * @returns {Promise} Lista de productos aleatorios
  */
 export const fetchRandomProducts = async () => {
-  const { data } = await axios.get('/api/products/random')
+  const { data } = await api.get('/api/products/random')
   return data
 }
 
@@ -28,7 +27,7 @@ export const fetchRandomProducts = async () => {
  * @returns {Promise} Lista de productos recientes
  */
 export const fetchRecentProducts = async () => {
-  const { data } = await axios.get('/api/products/recent')
+  const { data } = await api.get('/api/products/recent')
   return data
 }
 

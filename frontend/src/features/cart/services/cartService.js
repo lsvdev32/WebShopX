@@ -1,4 +1,4 @@
-import axios from 'axios'
+import api from '@/api/api.js'
 
 /**
  * Servicio para manejar las operaciones relacionadas con el carrito de compras
@@ -12,7 +12,7 @@ import axios from 'axios'
  * @returns {Promise} Lista de productos relacionados
  */
 export const fetchRelatedProducts = async (categories, excludeIds) => {
-  const { data } = await axios.get('/api/products', {
+  const { data } = await api.get('/api/products', {
     params: { categories: categories.join(',') }
   })
   return data.filter((p) => !excludeIds.includes(p._id)).slice(0, 10)

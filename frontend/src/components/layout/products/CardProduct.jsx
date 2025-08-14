@@ -2,6 +2,7 @@
  * Cards de productos para la tienda
  */
 
+import api from '@/api/api'
 import Ratings from '@/components/common/Ratings'
 import { Button } from '@/components/ui/button'
 import {
@@ -13,7 +14,6 @@ import {
 import { Store } from '@/context/Store'
 import { useToast } from '@/hooks/use-toast'
 import { calculateSavings, formatPrice } from '@/utils/pricing'
-import axios from 'axios'
 import { ShoppingCart, Truck } from 'lucide-react'
 import { useContext } from 'react'
 import { Link } from 'react-router'
@@ -36,7 +36,7 @@ export default function CardProduct ({ product }) {
      * Verificamos si el producto está en stock
      */
     try {
-      const { data } = await axios.get(`/api/products/${product._id}`)
+      const { data } = await api.get(`/api/products/${product._id}`)
       if (data.stock < quantity) {
         toast({
           variant: 'destructive',

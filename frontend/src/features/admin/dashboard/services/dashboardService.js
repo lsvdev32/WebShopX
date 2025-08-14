@@ -1,4 +1,4 @@
-import axios from 'axios'
+import api from '@/api/api.js'
 
 /**
  * Servicio para manejar operaciones relacionadas con el dashboard
@@ -11,7 +11,7 @@ import axios from 'axios'
  * @returns {Promise} Resumen con usuarios, pedidos, productos, ventas diarias y categorías
  */
 export const fetchDashboardSummary = async (token) => {
-  const { data } = await axios.get('/api/orders/summary', {
+  const { data } = await api.get('/api/orders/summary', {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import api from '@/api/api'
 /**
  * Servicio para manejar todo lo relacionado a la vista
  * de un producto en especifico
@@ -11,7 +11,7 @@ import axios from 'axios'
  * @returns {Promise} Devuelve el producto
  */
 export const fetchProductByLink = async (linkOrId) => {
-  const { data } = await axios.get(`/api/products/link/${linkOrId}`)
+  const { data } = await api.get(`/api/products/link/${linkOrId}`)
   return data
 }
 
@@ -22,7 +22,7 @@ export const fetchProductByLink = async (linkOrId) => {
  * @returns {Promise} Devuelve una lista de productos relacionados
  */
 export const fetchRelatedProducts = async (category, excludeId) => {
-  const { data } = await axios.get(`/api/products/category/${category}`)
+  const { data } = await api.get(`/api/products/category/${category}`)
   return data.filter((p) => p._id !== excludeId)
 }
 
@@ -34,7 +34,7 @@ export const fetchRelatedProducts = async (category, excludeId) => {
  * @returns {Promise} Devuelve la reseña creada
  */
 export const postProductReview = async (productId, review, token) => {
-  const { data } = await axios.post(`/api/products/${productId}/reviews`, review, {
+  const { data } = await api.post(`/api/products/${productId}/reviews`, review, {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data
@@ -45,7 +45,7 @@ export const postProductReview = async (productId, review, token) => {
  * @returns {Promise} Devuelve la reseña actualizada
  */
 export const updateProductReview = async (productId, reviewId, review, token) => {
-  const { data } = await axios.put(`/api/products/${productId}/reviews/${reviewId}`, review, {
+  const { data } = await api.put(`/api/products/${productId}/reviews/${reviewId}`, review, {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data
@@ -56,7 +56,7 @@ export const updateProductReview = async (productId, reviewId, review, token) =>
  * @returns {Promise} Devuelve la reseña eliminada
  */
 export const deleteProductReview = async (productId, reviewId, token) => {
-  const { data } = await axios.delete(`/api/products/${productId}/reviews/${reviewId}`, {
+  const { data } = await api.delete(`/api/products/${productId}/reviews/${reviewId}`, {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data

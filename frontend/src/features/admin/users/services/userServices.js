@@ -1,4 +1,4 @@
-import axios from 'axios'
+import api from '@/api/api.js'
 
 /**
  * Servicio para manejar operaciones relacionadas con usuarios
@@ -11,7 +11,7 @@ import axios from 'axios'
  * @returns {Promise} Lista de usuarios
  */
 export const fetchUsers = async (token) => {
-  const { data } = await axios.get('/api/users/admin/', {
+  const { data } = await api.get('/api/users/admin/', {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data
@@ -24,7 +24,7 @@ export const fetchUsers = async (token) => {
  * @returns {Promise} Respuesta de la eliminación
  */
 export const deleteUser = async (userId, token) => {
-  await axios.delete(`/api/users/admin/${userId}`, {
+  await api.delete(`/api/users/admin/${userId}`, {
     headers: { Authorization: `Bearer ${token}` }
   })
 }
@@ -37,7 +37,7 @@ export const deleteUser = async (userId, token) => {
  * @returns {Promise} Datos del usuario actualizado
  */
 export const updateUser = async (userId, userData, token) => {
-  const { data } = await axios.put(`/api/users/admin/${userId}`, userData, {
+  const { data } = await api.put(`/api/users/admin/${userId}`, userData, {
     headers: { Authorization: `Bearer ${token}` }
   })
   return data
