@@ -89,7 +89,10 @@ app.disable('x-powered-by')
 app.use(
   cors({
     // origin: Especifica qué dominios pueden hacer peticiones al servidor
-    origin: 'http://localhost:5173', // Dominio del frontend de desarrollo (Vite)
+    origin: [
+      'http://localhost:5173', // Dominio del frontend de desarrollo (Vite)
+      'https://frontend-webshopx-production.up.railway.app' // Dominio el frontend de produccion
+    ],
 
     // methods: Métodos HTTP permitidos
     methods: 'GET,HEAD,POST,PUT,PATCH,DELETE', // Lista de métodos HTTP que acepta el servidor
