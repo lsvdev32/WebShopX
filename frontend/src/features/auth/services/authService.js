@@ -5,15 +5,13 @@ import api from '@/api/api.js'
  * @module authService
  */
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
-
 /**
  * Inicia sesión con las credenciales del usuario
  * @param {*} data - Datos de inicio de sesión del usuario
  * @returns {Promise} Respuesta del servidor con la información del usuario
  */
 export const signin = async (data) => {
-  const response = await api.post(`${BACKEND_URL}/api/users/signin`, data)
+  const response = await api.post('/api/users/signin', data)
   return response.data
 }
 
@@ -23,7 +21,7 @@ export const signin = async (data) => {
  * @returns {Promise} Respuesta del servidor con la información del usuario
  */
 export const googleSignin = async (token) => {
-  const response = await api.post(`${BACKEND_URL}/api/users/google-signin`, { token })
+  const response = await api.post('/api/users/google-signin', { token })
   return response.data
 }
 
@@ -33,7 +31,7 @@ export const googleSignin = async (token) => {
  * @returns {Promise} Respuesta del servidor con la información del usuario registrado
  */
 export const signup = async (data) => {
-  const response = await api.post(`${BACKEND_URL}/api/users/signup`, data)
+  const response = await api.post('/api/users/signup', data)
   return response.data
 }
 
@@ -43,7 +41,7 @@ export const signup = async (data) => {
  * @returns {Promise} Respuesta del servidor confirmando el envío del correo electrónico
  */
 export const forgotPassword = async (data) => {
-  const response = await api.post(`${BACKEND_URL}/api/users/forgot-password`, data, {
+  const response = await api.post('/api/users/forgot-password', data, {
     headers: { 'Content-Type': 'application/json' }
   })
   return response.data
@@ -56,6 +54,6 @@ export const forgotPassword = async (data) => {
  * @returns {Promise} Respuesta del servidor confirmando el restablecimiento de la contraseña
  */
 export const resetPassword = async (token, data) => {
-  const response = await api.post(`${BACKEND_URL}/api/users/reset-password/${token}`, data)
+  const response = await api.post(`/api/users/reset-password/${token}`, data)
   return response.data
 }
