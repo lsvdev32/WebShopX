@@ -14,7 +14,6 @@ import {
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { GoogleLogin } from '@react-oauth/google'
 import { Lock, Mail, Phone, User } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useSignup } from '../hooks/useSignup'
@@ -40,7 +39,7 @@ export default function SignupForm ({ redirect }) {
    * Hook personalizado para manejar el registro de usuario
    * Incluye funciones para el registro normal y el registro a través de Google
    */
-  const { userRegistration, googleRegistration } = useSignup(redirect)
+  const { userRegistration } = useSignup(redirect)
 
   return (
     <div className='space-y-6'>
@@ -147,11 +146,11 @@ export default function SignupForm ({ redirect }) {
       </div>
 
       <div className='flex justify-center'>
-        <GoogleLogin
+        {/* <GoogleLogin
           theme='dark'
           text='Registrarse con Google'
           onSuccess={googleRegistration}
-        />
+        /> */}
       </div>
     </div>
   )

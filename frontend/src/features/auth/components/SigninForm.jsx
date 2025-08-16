@@ -14,7 +14,6 @@ import {
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { GoogleLogin } from '@react-oauth/google'
 import { Lock, Mail } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useSignin } from '../hooks/useSignin'
@@ -37,7 +36,7 @@ export default function SigninForm ({ redirect }) {
    * Hook personalizado para manejar el inicio de sesión y el registro con Google
    * Proporciona funciones para iniciar sesión con correo electrónico y contraseña,
    */
-  const { userSignin, googleRegistration } = useSignin(redirect)
+  const { userSignin } = useSignin(redirect)
 
   return (
     <div className='space-y-6'>
@@ -91,11 +90,11 @@ export default function SigninForm ({ redirect }) {
       </div>
 
       <div className='flex justify-center'>
-        <GoogleLogin
+        {/* <GoogleLogin
           text='Iniciar sesión con Google'
           theme='dark'
           onSuccess={({ credential }) => googleRegistration(credential)}
-        />
+        /> */}
       </div>
     </div>
   )
