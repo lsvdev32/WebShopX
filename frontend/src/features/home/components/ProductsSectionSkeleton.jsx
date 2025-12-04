@@ -12,10 +12,12 @@ export default function ProductsSectionSkeleton () {
     <section className='py-6'>
       <Container>
         <div className='block md:hidden'>
-          <Carousel>
+          <Carousel
+            className='w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[85vw] lg:max-w-[80vw] xl:max-w-7xl mx-auto'
+          >
             <CarouselContent>
               {[...Array(4).keys()].map((x) => (
-                <CarouselItem key={x} className='basis-[75%] px-2'>
+                <CarouselItem key={x} className='pl-2 md:pl-4 basis-2/5 sm:basis-2/7 md:basis-[28.57%] lg:basis-1/5'>
                   <SkeletonCard />
                 </CarouselItem>
               ))}

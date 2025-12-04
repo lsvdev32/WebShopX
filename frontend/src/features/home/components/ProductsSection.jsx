@@ -26,10 +26,13 @@ export default function ProductsSection ({ products, loading, error }) {
             : (
               <>
                 <div className='block md:hidden'>
-                  <Carousel opts={{ align: 'start' }}>
+                  <Carousel
+                    opts={{ align: 'start' }}
+                    className='w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[85vw] lg:max-w-[80vw] xl:max-w-7xl mx-auto' // estamos verificando el ancho de las cards para el responsive
+                  >
                     <CarouselContent>
                       {products.slice(0, 6).map((product) => (
-                        <CarouselItem key={product._id} className='basis-[75%] px-2'>
+                        <CarouselItem key={product._id} className='pl-4 md:pl-6 basis-2/5 sm:basis-2/7 md:basis-[28.57%] lg:basis-1/5'>
                           <CardProduct product={product} />
                         </CarouselItem>
                       ))}

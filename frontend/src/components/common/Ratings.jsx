@@ -15,7 +15,7 @@ export default function Ratings (props) {
 
   // con estas clases asignamos modulos diferentes para variar el tamaño
   return (
-    <div className='flex items-center'>
+    <div className='hidden sm:flex items-center '>
       {[1, 2, 3, 4, 5].map((star) => (
         <span key={star}>
           {ratings >= star ? (

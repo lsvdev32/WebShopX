@@ -15,13 +15,19 @@ export function InfiniteCarouselOfBrands () {
     <AnimatedSection>
       <section ref={ref}>
         <Container>
-          <InfiniteSlider ref={ref} gap={42} speed={30} reverse>
+          <InfiniteSlider
+            ref={ref}
+            gap={32}
+            speed={30}
+            reverse
+            className='w-full max-w-[90vw] sm:max-w-[85vw] md:max-w-[85vw] lg:max-w-[80vw] xl:max-w-7xl mx-auto'
+          >
             {Object.entries(Logos).map(([name, src]) => (
-              <div key={name} className='flex items-center justify-center h-12 w-32'>
+              <div key={name} className='flex items-center justify-center h-8 w-20 sm:h-10 sm:w-24 md:h-12 md:w-32'>
                 <img
                   src={src}
                   alt={`${name} logo`}
-                  className='max-h-full max-w-full object-contain '
+                  className='max-h-full max-w-full object-contain'
                 />
               </div>
             ))}

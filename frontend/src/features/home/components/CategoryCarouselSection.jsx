@@ -6,6 +6,7 @@ import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carouse
 import { useEffect, useState } from 'react'
 import { CategoryCard } from './CategoryCards'
 import CategoryCarouselSkeleton from './CategoryCarouselSkeleton'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 
 /**
  * Seccion de carrusel de categorías
@@ -17,6 +18,7 @@ export default function CategoryCarouselSection ({ categories, loading, error })
   const [api, setApi] = useState(null)
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
+  const [showAll, setShowAll] = useState(false)
 
   /**
    * Divide las categorías en páginas para el carrusel
@@ -47,6 +49,10 @@ export default function CategoryCarouselSection ({ categories, loading, error })
     }
   }, [api])
 
+  // Limitar categorías en móvil (3 filas = 3 categorías)
+  const categoriesToShow = showAll ? categories : categories.slice(0, 3)
+  const hasMoreCategories = categories.length > 3
+
   return (
     <AnimatedSection>
       <Container>
@@ -63,7 +69,7 @@ export default function CategoryCarouselSection ({ categories, loading, error })
                 <>
                   <div className='mb-6 flex items-center justify-between'>
                     <h2 className='text-start text-2xl font-light text-[#1a2238]'>Buscar por categorías</h2>
-                    <div className='flex items-center'>
+                    <div className='hidden md:flex items-center'>
                       <a href='#' className='text-blue-500 hover:underline' aria-label='Mostrar todas las categorías'>
                         Mostrar todas las categorías
                       </a>
@@ -81,25 +87,66 @@ export default function CategoryCarouselSection ({ categories, loading, error })
                       </div>
                     </div>
                   </div>
-                  <Carousel setApi={setApi} className='w-full' opts={{ align: 'start' }}>
-                    <CarouselContent>
-                      {categoryPages.map((page, pageIndex) => (
-                        <CarouselItem key={pageIndex} className='p-6'>
-                          <div className='grid grid-cols-1 sm:grid-rows-3 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-                            {page.map((category) => (
-                              <CategoryCard
-                                key={category.id}
-                                title={category.title}
-                                imageSrc={category.imageSrc}
-                                imageAlt={category.imageAlt}
-                                href={category.href}
-                              />
-                            ))}
-                          </div>
-                        </CarouselItem>
+
+                  {/* Vista móvil (< md) */}
+                  <div className='md:hidden'>
+                    <div className='grid grid-cols-1 gap-4'>
+                      {categoriesToShow.map((category) => (
+                        <CategoryCard
+                          key={category.id}
+                          title={category.title}
+                          imageSrc={category.imageSrc}
+                          imageAlt={category.imageAlt}
+                          href={category.href}
+                        />
                       ))}
-                    </CarouselContent>
-                  </Carousel>
+                    </div>
+
+                    {hasMoreCategories && (
+                      <button
+                        onClick={() => setShowAll(!showAll)}
+                        className='mt-6 w-full flex items-center justify-center gap-2 py-3 px-4 bg-transparent font-light'
+                        aria-expanded={showAll}
+                      >
+                        {showAll
+                          ? (
+                            <>
+                              Ver menos categorías
+                              <ChevronUp className='w-5 h-5' />
+                            </>
+                            )
+                          : (
+                            <>
+                              Ver más categorías
+                              <ChevronDown className='w-5 h-5' />
+                            </>
+                            )}
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Vista desktop (≥ md) - Carrusel original */}
+                  <div className='hidden md:block'>
+                    <Carousel setApi={setApi} className='w-full' opts={{ align: 'start' }}>
+                      <CarouselContent>
+                        {categoryPages.map((page, pageIndex) => (
+                          <CarouselItem key={pageIndex} className='p-6'>
+                            <div className='grid grid-cols-1 sm:grid-rows-3 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+                              {page.map((category) => (
+                                <CategoryCard
+                                  key={category.id}
+                                  title={category.title}
+                                  imageSrc={category.imageSrc}
+                                  imageAlt={category.imageAlt}
+                                  href={category.href}
+                                />
+                              ))}
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                    </Carousel>
+                  </div>
                 </>
                 )}
         </CardWrapper>

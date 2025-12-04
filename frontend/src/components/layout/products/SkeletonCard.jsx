@@ -14,7 +14,7 @@ export default function SkeletonCard () {
   return (
     <Card className='rounded-sm border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md'>
       <CardHeader className='bg-white m-2 rounded-sm p-0'>
-        <Skeleton className='w-[159px] h-[110px]' />
+        <Skeleton className='w-full aspect-[159/110]' />
       </CardHeader>
       <CardContent className='relative p-3'>
         <Skeleton className='h-4 w-1/2 mb-2' />

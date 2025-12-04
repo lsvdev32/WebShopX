@@ -22,6 +22,7 @@ export default function SliderImg () {
           stopOnInteractions: false // No se detiene al interactuar con el carrusel
         })
       ]}
+      className='hidden md:block'
     >
       <CarouselContent className='-ml-2 md:-ml-4'>
         <CarouselItem className='pl-2 md:pl-4'>

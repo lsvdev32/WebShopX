@@ -18,13 +18,13 @@ export default function ProductCarousel ({ products, className }) {
       opts={{
         align: 'start'
       }}
-      className='w-full'
+      className='w-full max-w-[75vw] sm:max-w-[80vw] md:max-w-[85vw] lg:max-w-[80vw] xl:max-w-7xl mx-auto'
     >
-      <CarouselContent>
+      <CarouselContent className='-ml-2 md:-ml-4'>
         {products.map((product) => (
           <CarouselItem
             key={product._id}
-            className={`basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/5 ${className}`}
+            className={`pl-2 md:pl-4 basis-2/3 sm:basis-2/5 md:basis-[28.57%] lg:basis-1/5 ${className}`}
           >
             <div className='p-1'>
               <CardProductSlider product={product} />

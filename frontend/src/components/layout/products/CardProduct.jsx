@@ -66,13 +66,13 @@ export default function CardProduct ({ product }) {
         </CardHeader>
         <CardContent className='p-3 dark:text-gray-400'>
           <Ratings ratings={product.ratings} numReviews={product.numReviews} />
-          <p className='min-h-16 line-clamp-2 overflow-hidden text-ellipsis text-xs group-hover:text-blue-600 lg:min-h-fit'>
+          <p className='min-h-fit line-clamp-2 overflow-hidden text-ellipsis text-xs group-hover:text-blue-600 lg:min-h-fit'>
             {product.name}
           </p>
-          <p className='text-sm font-semibold'>{formatPrice(product.price)}</p>
+          <p className='text-sm font-semibold mt-2'>{formatPrice(product.price)}</p>
           {installmentPrice && (
             <p className='mt-1 text-xs'>
-              en <span className='text-green-600 dark:text-green-700'>3 cuotas de {installmentPrice} con 0% de intereses</span>
+              en <span className='text-green-600 dark:text-green-700 line-clamp-1 overflow-hidden text-ellipsis'>3 cuotas de {installmentPrice} con 0% de intereses</span>
             </p>
           )}
           <div className='mt-2 flex items-center gap-2 text-green-600 dark:text-green-700'>
@@ -88,7 +88,7 @@ export default function CardProduct ({ product }) {
           variant={isOutOfStock ? 'outline' : 'default'}
           disabled={isOutOfStock}
           onClick={handleAddToCart}
-          className={`flex w-full rounded-sm items-center ${isOutOfStock ? 'bg-[#1a2238] text-white' : 'bg-[#1a2238] text-white hover:bg-[#2a3248]'}`}
+          className={`hidden md:flex w-full rounded-sm items-center ${isOutOfStock ? 'bg-[#1a2238] text-white' : 'bg-[#1a2238] text-white hover:bg-[#2a3248]'}`}
         >
           {isOutOfStock
             ? (
@@ -96,7 +96,7 @@ export default function CardProduct ({ product }) {
               )
             : (
               <>
-                <ShoppingCart className=' h-4 w-4' />
+                <ShoppingCart className='h-4 w-4' />
                 Agregar al carrito
               </>
               )}

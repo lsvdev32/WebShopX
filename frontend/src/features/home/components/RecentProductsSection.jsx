@@ -17,7 +17,7 @@ export default function RecentProductsSection ({ products, loading, error }) {
     <AnimatedSection>
       <Container>
         <CardWrapper className='p-6'>
-          <h2 className='text-start text-2xl font-light mb-4'>Productos agregados recientemente</h2>
+          <h2 className='text-start text-xl md:text-2xl font-light mb-4'>Productos agregados recientemente</h2>
           {loading
             ? (
               <RecentProductsSkeleton />
