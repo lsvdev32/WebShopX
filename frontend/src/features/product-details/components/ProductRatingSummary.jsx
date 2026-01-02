@@ -25,31 +25,31 @@ export default function ProductRatingSummary ({ product }) {
     <div className='py-6'>
       <div className='flex'>
         <div className='w-1/3'>
-          <h2 className='text-xl font-bold mb-2'>Reseñas y calificaciones</h2>
+          <h2 className='text-xl font-bold text-foreground mb-2'>Reseñas y calificaciones</h2>
           <div className='flex items-center gap-2 mb-1'>
             <Ratings ratings={ratings} />
             <span>({ratings.toFixed(1)} de 5)</span>
           </div>
-          <p className='text-sm text-gray-700'>Basado en {totalReviews} reseñas en total</p>
+          <p className='text-sm text-muted-foreground'>Basado en {totalReviews} reseñas en total</p>
         </div>
         <div className='w-2/3 space-y-2'>
           {[5, 4, 3, 2, 1].map((stars) => (
             <div key={stars} className='flex items-center gap-3'>
-              <span className='ml-2 text-xs text-gray-600'>
+              <span className='ml-2 text-xs text-muted-foreground'>
                 {stars} {stars === 1 ? 'estrella' : 'estrellas'}
               </span>
-              <div className='flex-1 bg-gray-200 rounded-full h-2'>
+              <div className='flex-1 bg-muted rounded-full h-2'>
                 <div
-                  className='bg-[#1a2238] h-2 rounded-full'
+                  className='bg-primary transition-all h-2 rounded-full'
                   style={{ width: totalReviews ? `${(reviewCounts[stars] / totalReviews) * 100}%` : '0%' }}
                 />
               </div>
-              <span className='text-xs text-gray-600'>{reviewCounts[stars]}</span>
+              <span className='text-xs text-muted-foreground'>{reviewCounts[stars]}</span>
             </div>
           ))}
         </div>
       </div>
-      <hr className='mt-6 border-t border-gray-200' />
+      <hr className='mt-6 border-t border-border' />
     </div>
   )
 }

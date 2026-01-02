@@ -63,11 +63,11 @@ export default function ProductDetailsForm ({ userInfo, onSubmit, loading, userR
    */
   if (!userInfo) {
     return (
-      <p className='text-gray-500'>
+      <p className='text-muted-foreground'>
         Por favor,
         <Link
           to={`/signin?redirect=/product/${window.location.pathname.split('/').pop()}`}
-          className='text-blue-600 hover:underline'
+          className='text-primary hover:text-primary-hover'
         >
           inicia sesión
         </Link>
@@ -78,7 +78,7 @@ export default function ProductDetailsForm ({ userInfo, onSubmit, loading, userR
 
   return (
     <form onSubmit={handleSubmit} className='mt-6 space-y-4'>
-      <h3 className='text-xl font-semibold'>
+      <h3 className='text-xl font-semibold text-foreground'>
         {userReview ? 'Editar tu reseña' : 'Cuéntanos, ¿qué tal te pareció el producto?'}
       </h3>
       <div>
@@ -87,12 +87,12 @@ export default function ProductDetailsForm ({ userInfo, onSubmit, loading, userR
           <SelectTrigger id='ratings'>
             <SelectValue placeholder='Seleccionar...' />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value='1'>1 - Muy malo</SelectItem>
-            <SelectItem value='2'>2 - Malo</SelectItem>
-            <SelectItem value='3'>3 - Bueno</SelectItem>
-            <SelectItem value='4'>4 - Muy bueno</SelectItem>
-            <SelectItem value='5'>5 - Excelente</SelectItem>
+          <SelectContent className='flex gap-2'>
+            <SelectItem value='1' className='hover:cursor-pointer'>1 - Muy malo</SelectItem>
+            <SelectItem value='2' className='hover:cursor-pointer'>2 - Malo</SelectItem>
+            <SelectItem value='3' className='hover:cursor-pointer'>3 - Bueno</SelectItem>
+            <SelectItem value='4' className='hover:cursor-pointer'>4 - Muy bueno</SelectItem>
+            <SelectItem value='5' className='hover:cursor-pointer'>5 - Excelente</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -108,7 +108,7 @@ export default function ProductDetailsForm ({ userInfo, onSubmit, loading, userR
         />
       </div>
       <div>
-        <Button type='submit' disabled={loading}>
+        <Button type='submit' disabled={loading} className='bg-primary text-primary-foreground hover:bg-primary-hover'>
           {loading ? <Loader className='w-4 h-4' /> : userReview ? 'Actualizar' : 'Agregar comentario'}
         </Button>
         {userReview && (

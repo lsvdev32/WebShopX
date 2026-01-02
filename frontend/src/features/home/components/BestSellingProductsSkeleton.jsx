@@ -1,6 +1,7 @@
 import Container from '@/components/common/Container'
 import SkeletonCard from '@/components/layout/products/SkeletonCard'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { Skeleton } from '@/components/ui/skeleton'
 
 /**
  * Skelton de carga para la sección de productos más vendidos.
@@ -10,9 +11,9 @@ import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carouse
 
 export default function BestSellingProductsSkeleton () {
   return (
-    <section className='bg-[#1a2238] text-white py-6'>
+    <section className='bg-primary text-primary-foreground py-6'>
       <Container>
-        <div className='h-6 w-1/3 bg-gray-200 rounded mb-6 animate-pulse' />
+        <Skeleton className='h-6 w-1/3 mb-6 bg-primary-foreground/20' />
         <div className='block md:hidden'>
           <Carousel
             className='w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[85vw] lg:max-w-[80vw] xl:max-w-7xl mx-auto'

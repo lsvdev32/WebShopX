@@ -85,7 +85,7 @@ export default function SigninForm ({ redirect }) {
           <Separator />
         </div>
         <div className='relative flex justify-center text-xs uppercase'>
-          <span className='bg-white px-2 text-muted-foreground'>O</span>
+          <span className='bg-card px-2 text-muted-foreground'>O</span>
         </div>
       </div>
 

@@ -7,12 +7,12 @@
 import SearchBar from '@/components/common/SearchBar'
 import { Store } from '@/context/Store'
 import { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router'
 import { ModeToggle } from '../../common/ModleToggle'
 import AdminMenu from './AdminMenu'
 import CartIcon from './CartIcon'
 import MobileMenu from './MobileMenu'
 import UserMenu from './UserMenu'
-import { Link, useNavigate } from 'react-router'
 
 export default function Navbar () {
   const { state, dispatch: ctxDispatch } = useContext(Store)
@@ -44,9 +44,9 @@ export default function Navbar () {
   }
 
   return (
-    <nav className='w-full bg-[#1a2238] text-white dark:bg-[#020617]'>
+    <nav className='w-full bg-primary text-primary-foreground shadow-sm'>
       <div className='flex justify-between items-center sm:container sm:max-w-7xl sm:mx-auto py-2'>
-        <Link to='/' className='flex items-center'>
+        <Link to='/' className='flex items-center hover:opacity-80 transition-opacity'>
           <span className='text-xl font-bold'>WebShopX</span>
         </Link>
 

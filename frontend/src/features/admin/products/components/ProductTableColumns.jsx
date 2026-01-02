@@ -90,10 +90,10 @@ export const getProductTableColumns = ({ handleEditProduct, handleDeleteProduct 
             variant='outline'
             className={
               stock > 5
-                ? 'text-green-600 text-xs border-green-500'
+                ? 'text-success text-xs border-success dark:text-success dark:border-success'
                 : stock > 0
-                  ? 'text-orange-500 text-xs border-orange-500'
-                  : 'text-red-600 text-xs border-red-500'
+                  ? 'text-[#f59e0b] text-xs border-[#f59e0b] dark:text-[#fbbf24] dark:border-[#fbbf24]'
+                  : 'text-red-600 text-xs border-red-600 dark:text-red-400 dark:border-red-400'
             }
           >
             {stock > 5 ? 'Disponible' : stock > 0 ? 'Stock bajo' : 'Agotado'}

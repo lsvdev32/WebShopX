@@ -28,7 +28,7 @@ export default function UserForm ({ user, setOpenModal, onSuccess }) {
           name='name'
           render={({ field }) => (
             <FormItem>
-              <FormLabel className='text-gray-600 font-medium'>Nombre</FormLabel>
+              <FormLabel className='text-foreground font-medium'>Nombre</FormLabel>
               <FormControl>
                 <Input placeholder='Nombre completo...' {...field} aria-label='Nombre completo' />
               </FormControl>
@@ -41,7 +41,7 @@ export default function UserForm ({ user, setOpenModal, onSuccess }) {
           name='email'
           render={({ field }) => (
             <FormItem>
-              <FormLabel className='text-gray-600 font-medium'>Correo electrónico</FormLabel>
+              <FormLabel className='text-foreground font-medium'>Correo electrónico</FormLabel>
               <FormControl>
                 <Input type='email' placeholder='Correo electrónico...' {...field} aria-label='Correo electrónico' />
               </FormControl>
@@ -54,7 +54,7 @@ export default function UserForm ({ user, setOpenModal, onSuccess }) {
           name='phone'
           render={({ field }) => (
             <FormItem>
-              <FormLabel className='text-gray-600 font-medium'>Teléfono</FormLabel>
+              <FormLabel className='text-foreground font-medium'>Teléfono</FormLabel>
               <FormControl>
                 <Input type='tel' placeholder='Número de teléfono...' {...field} aria-label='Número de teléfono' />
               </FormControl>
@@ -63,8 +63,8 @@ export default function UserForm ({ user, setOpenModal, onSuccess }) {
           )}
         />
         <div className='relative flex items-center py-4'>
-          <Separator className='flex-grow bg-gray-300' />
-          <span className='absolute left-1/2 -translate-x-1/2 bg-white px-3 text-sm font-medium text-gray-600'>
+          <Separator className='flex-grow bg-border' />
+          <span className='absolute left-1/2 -translate-x-1/2 bg-card px-3 text-sm font-medium text-foreground'>
             Opciones avanzadas
           </span>
         </div>
@@ -75,7 +75,7 @@ export default function UserForm ({ user, setOpenModal, onSuccess }) {
             onCheckedChange={setIsAdmin}
             aria-label='¿El usuario es administrador?'
           />
-          <FormLabel htmlFor='isAdmin' className='text-gray-600 font-medium'>
+          <FormLabel htmlFor='isAdmin' className='text-foreground font-medium'>
             ¿El usuario es administrador de la tienda?
           </FormLabel>
         </div>

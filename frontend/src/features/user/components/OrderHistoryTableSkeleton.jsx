@@ -16,27 +16,27 @@ import {
 export default function OrderHistoryTableSkeleton () {
   return (
     <CardWrapper className='p-6 animate-pulse'>
-      <div className='h-6 w-1/3 bg-gray-200 rounded mb-6' />
+      <div className='h-6 w-1/3 bg-card rounded mb-6' />
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className='h-10 bg-gray-200' />
-            <TableHead className='h-10 bg-gray-200' />
-            <TableHead className='h-10 bg-gray-200' />
-            <TableHead className='h-10 bg-gray-200' />
-            <TableHead className='h-10 bg-gray-200' />
-            <TableHead className='h-10 bg-gray-200' />
+            <TableHead className='h-10 bg-card' />
+            <TableHead className='h-10 bg-card' />
+            <TableHead className='h-10 bg-card' />
+            <TableHead className='h-10 bg-card' />
+            <TableHead className='h-10 bg-card' />
+            <TableHead className='h-10 bg-card' />
           </TableRow>
         </TableHeader>
         <TableBody>
           {[...Array(5)].map((_, index) => (
             <TableRow key={index}>
-              <TableCell className='h-10 bg-gray-200' />
-              <TableCell className='h-10 bg-gray-200' />
-              <TableCell className='h-10 bg-gray-200' />
-              <TableCell className='h-10 bg-gray-200' />
-              <TableCell className='h-10 bg-gray-200' />
-              <TableCell className='h-10 bg-gray-200' />
+              <TableCell className='h-10 bg-card' />
+              <TableCell className='h-10 bg-card' />
+              <TableCell className='h-10 bg-card' />
+              <TableCell className='h-10 bg-card' />
+              <TableCell className='h-10 bg-card' />
+              <TableCell className='h-10 bg-card' />
             </TableRow>
           ))}
         </TableBody>

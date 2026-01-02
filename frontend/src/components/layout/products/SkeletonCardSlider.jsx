@@ -31,10 +31,10 @@ export default function SkeletonCard () {
         <Skeleton className='h-4 w-3/4 mb-3' />
 
         {/* Precio */}
-        <Skeleton className='h-5 w-24 mb-2' />
+        <Skeleton className='h-5 w-24 mb-3' />
 
         {/* Cuotas */}
-        <Skeleton className='h-3 w-full mb-2' />
+        <Skeleton className='h-3 w-full mb-3' />
 
         {/* Envío gratis */}
         <div className='flex items-center gap-2'>
@@ -42,9 +42,6 @@ export default function SkeletonCard () {
           <Skeleton className='h-3 w-20' />
         </div>
       </CardContent>
-      <CardFooter className='px-3'>
-        <Skeleton className='w-full h-10 rounded-sm' />
-      </CardFooter>
     </Card>
   )
 }

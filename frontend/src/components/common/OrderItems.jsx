@@ -53,34 +53,40 @@ export default function OrderItems ({ orderItems, textTitle, editCart }) {
   return (
     <CardWrapper>
       <CardContent className='p-6'>
-        <div className='flex justify-between'>
-          <h2 className='mb-2 text-lg font-semibold'>{textTitle}</h2>
+        <div className='flex justify-between items-center'>
+          <h2 className='mb-2 text-lg font-semibold text-foreground'>{textTitle}</h2>
           {editCart && (
-            <Link to='/cart' className='text-blue-800 hover:underline pl-10' aria-label='Editar carrito de compras'>
+            <Link
+              to='/cart'
+              className='text-primary hover:text-primary-hover hover:underline pl-4 transition-colors flex items-center gap-1'
+              aria-label='Editar carrito de compras'
+            >
               <p className='hidden sm:block font-light'>Editar carrito de compras</p>
               <Edit3 className='w-4 h-4 block sm:hidden' />
             </Link>
           )}
         </div>
-        <ul className='divide-y divide-gray-200'>
+        <ul className='divide-y divide-border'>
           {orderItems.map((item) => (
             <li key={item._id} className='py-4 flex items-center'>
-              <img
-                src={getItemImage(item)}
-                alt={item.name || 'Producto sin nombre'}
-                className='w-20 h-20 object-contain flex-shrink-0 hover:scale-105 hover:cursor-pointer'
-                onError={(e) => (e.target.src = PLACEHOLDER_IMAGE)} // Fallback si la imagen falla
-              />
+              <div className='bg-white m-2 rounded-sm p-0'>
+                <img
+                  src={getItemImage(item)}
+                  alt={item.name || 'Producto sin nombre'}
+                  className='w-20 h-20 object-contain flex-shrink-0 hover:cursor-pointer transition-transform'
+                  onError={(e) => (e.target.src = PLACEHOLDER_IMAGE)} // Fallback si la imagen falla
+                />
+              </div>
               <div className='ml-4 flex-grow'>
                 <Link
                   to={`/product/${item.slug || item.link}`}
-                  className='font-medium text-gray-900 hover:text-blue-500'
+                  className='font-medium text-foreground hover:text-primary transition-colors'
                   aria-label={`Ver detalles de ${item.name}`}
                 >
                   {item.name}
                 </Link>
-                <p className='mt-1 text-sm text-gray-500'>
-                  {item.quantity} x {formatPrice(item.price)} = {formatPrice(item.quantity * item.price)}
+                <p className='mt-1 text-sm text-muted-foreground'>
+                  {item.quantity} x {formatPrice(item.price)} = <span className='font-medium text-foreground'>{formatPrice(item.quantity * item.price)}</span>
                 </p>
               </div>
             </li>

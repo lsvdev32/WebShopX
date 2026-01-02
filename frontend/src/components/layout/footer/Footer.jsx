@@ -60,7 +60,7 @@ export default function Footer () {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className='bg-[#1a2238] text-white dark:bg-[#020617]'>
+    <footer className='bg-primary text-primary-foreground'>
       <div className='max-w-[1200px] mx-auto'>
 
         {isDesktop ? (

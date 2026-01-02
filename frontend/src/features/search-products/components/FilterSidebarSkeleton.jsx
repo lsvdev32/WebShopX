@@ -1,5 +1,6 @@
 import CardWrapper from '@/components/common/CardWrapper'
 import { CardContent } from '@/components/ui/card'
+import { Skeleton } from '@/components/ui/skeleton'
 
 /**
  * Componente skeleton para la barra lateral de filtros
@@ -11,28 +12,28 @@ export default function FilterSidebarSkeleton ({ isMobile = false }) {
   const content = (
     <div className='space-y-6 animate-pulse'>
       <div>
-        <div className='h-6 w-1/3 bg-gray-200 rounded mb-3' />
+        <Skeleton className='h-6 w-1/3 rounded mb-3' />
         <div className='space-y-2'>
           {[...Array(5)].map((_, i) => (
-            <div key={i} className='h-4 w-full bg-gray-200 rounded' />
+            <Skeleton key={i} className='h-4 w-full rounded' />
           ))}
         </div>
       </div>
-      <div className='h-px bg-gray-200' />
+      <Skeleton className='h-px' />
       <div>
-        <div className='h-6 w-1/3 bg-gray-200 rounded mb-3' />
+        <Skeleton className='h-6 w-1/3 rounded mb-3' />
         <div className='space-y-2'>
           {[...Array(3)].map((_, i) => (
-            <div key={i} className='h-4 w-full bg-gray-200 rounded' />
+            <Skeleton key={i} className='h-4 w-full rounded' />
           ))}
         </div>
       </div>
-      <div className='h-px bg-gray-200' />
+      <Skeleton className='h-px' />
       <div>
-        <div className='h-6 w-1/3 bg-gray-200 rounded mb-3' />
+        <Skeleton className='h-6 w-1/3 rounded mb-3' />
         <div className='space-y-2'>
           {[...Array(4)].map((_, i) => (
-            <div key={i} className='h-4 w-full bg-gray-200 rounded' />
+            <Skeleton key={i} className='h-4 w-full rounded' />
           ))}
         </div>
       </div>

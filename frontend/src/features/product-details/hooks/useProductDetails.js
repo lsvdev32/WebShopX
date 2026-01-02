@@ -1,6 +1,5 @@
 import { Store } from '@/context/Store'
 import { toast } from '@/hooks/use-toast'
-import axios from 'axios'
 import {
   useContext,
   useEffect,
@@ -94,13 +93,11 @@ export default function useProductDetails (link) {
     * @returns {function} addProductToCart - Función para agregar el producto al carrito
     * @description Esta función verifica si el producto está en stock y lo agrega al carrito.
   */
-  const addProductToCart = async () => {
+  const addProductToCart = () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id)
     const quantity = existItem ? existItem.quantity + 1 : 1
-    const { data } = await axios.get(`/api/products/${product._id}`)
 
-    // Verificamos si el producto está en stock
-    if (data.countInStock < quantity) {
+    if (product.stock < quantity) {
       toast({
         title: 'Producto agotado',
         description: 'Lo sentimos, el producto no está disponible.',
@@ -108,10 +105,14 @@ export default function useProductDetails (link) {
       })
       return
     }
-    // Llamamos al dispatch del contexto global (Store) para agregar el producto al carrito
-    ctxDispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } })
+
+    ctxDispatch({
+      type: 'CART_ADD_ITEM',
+      payload: { ...product, quantity }
+    })
+
     toast({
-      description: `${product.name} ha sido añadido al carrito.` // notificamos
+      description: `${product.name} ha sido añadido al carrito.`
     })
   }
 

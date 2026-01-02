@@ -12,7 +12,7 @@ export default function CartIcon ({ cart }) {
     <Link to='/cart' className='relative flex items-center'>
       <ShoppingCart className='w-5 h-5' />
       {cart.cartItems.length > 0 && (
-        <Badge variant='destructive' className='absolute rounded-full w-5 h-5 -top-2 -right-6 hover:bg-red-500 flex justify-center items-center'>
+        <Badge variant='destructive' className='absolute rounded-full w-5 h-5 -top-2 -right-6 flex justify-center items-center'>
           {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
         </Badge>
       )}

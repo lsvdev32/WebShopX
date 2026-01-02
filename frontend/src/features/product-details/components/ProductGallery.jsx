@@ -20,15 +20,15 @@ export default function ProductGallery ({ images = [] }) {
         <img
           src={displayImages[selectedImage] || '/placeholder.svg'}
           alt='Product main image'
-          className='w-full h-auto max-h-96 object-contain'
+          className='w-full h-auto max-h-96 object-contain bg-white m-2 rounded-lg p-0'
         />
       </div>
       <div className='flex flex-row md:flex-col gap-2 overflow-x-auto order-2 md:order-1 mt-4 md:mt-0'>
         {displayImages.map((image, index) => (
           <div
             key={index}
-            className={`min-w-[80px] w-20 h-20 p-2 border rounded-lg cursor-pointer flex-shrink-0 ${
-              selectedImage === index ? 'border-2 border-primary' : 'border-gray-200'
+            className={`min-w-[80px] w-20 h-20 p-2 border cursor-pointer flex-shrink-0 bg-white rounded-lg ${
+              selectedImage === index ? 'border-2 border-primary' : 'border-foreground'
             }`}
             onClick={() => setSelectedImage(index)}
           >

@@ -39,7 +39,7 @@ export default function UsersScreen () {
       </Helmet>
       <header className='mb-6'>
         <h1 className='text-2xl font-semibold'>Administrar usuarios registrados</h1>
-        <p className='text-sm text-gray-400'>
+        <p className='text-sm text-muted-foreground'>
           Aquí puedes actualizar la información de los usuarios y eliminarlos si lo deseas.
         </p>
       </header>

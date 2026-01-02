@@ -1,6 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { AlertCircle } from 'lucide-react'
+import PropTypes from 'prop-types'
 
 const RadioGroup = ({ label, options, value, onChange, error }) => {
   return (

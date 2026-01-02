@@ -21,7 +21,7 @@ export default function OrderSummary ({
   isDisabled
 }) {
   return (
-    <CardWrapper className='w-full bg-[#1a2238] text-gray-200 space-y-6'>
+    <CardWrapper className='w-full bg-primary text-primary-foreground space-y-6 shadow-lg'>
       <div className='p-6'>
         <h2 className='text-xl font-semibold mb-4'>Resumen</h2>
         <div className='space-y-3'>
@@ -41,7 +41,7 @@ export default function OrderSummary ({
             <p>Gastos de envío</p>
             {shippingCost === 0
               ? (
-                <Badge variant='outline' className='text-green-600'>
+                <Badge variant='outline' className='text-success border-success bg-success/10 dark:text-success dark:border-success dark:bg-success/10'>
                   Gratis
                 </Badge>
                 )
@@ -49,17 +49,17 @@ export default function OrderSummary ({
                 <p>{formatPrice(shippingCost)}</p>
                 )}
           </div>
-          <div className='flex justify-between text-red-500'>
+          <div className='flex justify-between text-destructive font-medium'>
             <p>Ahorro total</p>
             <p>- {formatPrice(savings)}</p>
           </div>
-          <Separator />
-          <div className='flex justify-between font-semibold'>
+          <Separator className='bg-primary-foreground/20' />
+          <div className='flex justify-between font-semibold text-lg'>
             <p>Total estimado</p>
             <p>{formatPrice(total)}</p>
           </div>
           <Button
-            className='w-full bg-white text-[#1a2238] hover:bg-gray-200 disabled:bg-[#bdc3c7] disabled:cursor-not-allowed py-3'
+            className='w-full bg-background text-foreground hover:bg-background/90 disabled:opacity-50 disabled:cursor-not-allowed py-3 font-semibold shadow-sm transition-all'
             onClick={onClick}
             disabled={isDisabled}
           >

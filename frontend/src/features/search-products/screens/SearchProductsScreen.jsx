@@ -76,8 +76,8 @@ export default function SearchProductsScreen () {
                 )
               : (
                 <div className='space-y-6'>
-                  <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-4'>
-                    <div className='flex flex-col gap-2'>
+                  <div className='flex p-4 rounded-sm flex-col md:flex-row md:justify-between md:items-center gap-4'>
+                    <div className='flex flex-col gap-2 items-center'>
                       <span className='text-sm text-muted-foreground'>
                         {countProducts === 0 ? 'No' : countProducts} productos en total
                       </span>

@@ -30,7 +30,7 @@ export default function HomeScreen () {
       <SliderImgMobile />
       <BackToTop />
       <div className='relative hidden md:block'>
-        <div className='absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#ebebeb] to-transparent dark:from-[#202A39]' />
+        <div className='absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#ebebeb] to-transparent dark:from-[#111111] dark:to-transparent' />
       </div>
       <ProductsSection products={randomProducts} loading={loading} error={error} />
       <InfiniteCarouselOfBrands />

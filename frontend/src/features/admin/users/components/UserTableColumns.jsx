@@ -53,7 +53,7 @@ export const getUserTableColumns = ({ handleEditUser, handleDeleteUser }) => [
         <div className='text-center'>
           <Badge
             variant='outline'
-            className={isAdmin ? 'text-blue-600 border-blue-500' : 'text-gray-800 border-gray-400'}
+            className={isAdmin ? 'text-primary border-primary dark:border-primary' : 'text-foreground border-foreground'}
           >
             {isAdmin ? 'SÍ' : 'NO'}
           </Badge>

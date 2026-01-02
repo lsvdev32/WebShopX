@@ -22,26 +22,24 @@ export default function ProductList ({ products }) {
                 <img
                   src={product.images?.[0] || '/placeholder.svg'}
                   alt={`Imagen de ${product.name}`}
-                  className='w-full h-full object-contain rounded-md hover:scale-105 transition-transform'
+                  className='w-full h-full object-contain rounded-md hover:scale-105 transition-transform bg-white p-0'
                 />
               </Link>
               <div className='flex-1 space-y-4 group'>
                 <div>
                   <Link
                     to={`/product/${product.link}`}
-                    className='text-lg font-medium line-clamp-1 text-ellipsis group-hover:text-blue-600'
+                    className='text-lg font-medium line-clamp-1 text-ellipsis text-foreground hover:text-primary-hover transition-colors'
                     aria-label={`Ver detalles de ${product.name}`}
                   >
                     {product.name}
                   </Link>
                   <p className='text-sm text-muted-foreground mt-1'>Marca: {product.brand}</p>
                 </div>
-                <div className='flex items-center gap-4'>
-                  <Ratings ratings={product.ratings} numReviews={product.numReviews} />
-                </div>
+                <Ratings ratings={product.ratings} numReviews={product.numReviews} />
                 <div>
-                  <p className='text-2xl'>{formatPrice(product.price)}</p>
-                  <div className='mt-2 flex items-center gap-2 text-green-600 dark:text-green-700'>
+                  <p className='text-2xl text-foreground'>{formatPrice(product.price)}</p>
+                  <div className='mt-2 flex items-center gap-2 text-success'>
                     <Truck className='h-4 w-4' aria-hidden='true' />
                     <p className='text-xs'>
                       {calculateFreeShipping(product.price) ? 'Envío gratis' : `Envío: ${formatPrice(20000)}`}

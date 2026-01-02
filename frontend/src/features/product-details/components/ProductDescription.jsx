@@ -38,15 +38,15 @@ export default function ProductDescription ({ description }) {
 
   return (
     <div>
-      <h2 className='text-xl font-semibold mb-2'>Descripción del producto</h2>
+      <h2 className='text-xl font-semibold mb-2 text-foreground'>Descripción del producto</h2>
       <div
-        className='text-gray-700'
+        className='text-foreground'
         dangerouslySetInnerHTML={{ __html: formatDescription(truncatedDescription) }}
       />
       {description.length > 1000 && (
         <Button
           variant='link'
-          className='p-0 ml-2 h-auto text-blue-600'
+          className='p-0 ml-2 h-auto text-primary hover:text-primary-hover'
           onClick={() => setShowFull(!showFull)}
         >
           {showFull ? 'Ver menos' : 'Ver más'}

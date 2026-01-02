@@ -19,8 +19,8 @@ export default function ShippingForm ({ control, errors }) {
   return (
     <CardWrapper className='w-full p-6 h-fit mb-5'>
       <div className='flex flex-col items-center mb-8'>
-        <h1 className='text-2xl font-semibold text-[#1a2238] text-center'>Información de envío y métodos de pago</h1>
-        <p className='text-xs text-gray-500'>
+        <h1 className='text-2xl font-semibold text-foreground text-center'>Información de envío y métodos de pago</h1>
+        <p className='text-xs text-muted-foreground mt-1'>
           Complete la información lo mas claro posible para facilitar la entrega y reducir el tiempo de espera
         </p>
       </div>

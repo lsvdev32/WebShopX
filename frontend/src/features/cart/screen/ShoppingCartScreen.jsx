@@ -61,7 +61,7 @@ export default function ShoppingCartScreen () {
                     <div>
                       <AlertTitle>El carrito está vacío</AlertTitle>
                       <AlertDescription>
-                        <Link to='/' className='underline hover:text-blue-600'>
+                        <Link to='/' className='underline hover:text-primary'>
                           Haz clic aquí para ir de compras
                         </Link>
                       </AlertDescription>

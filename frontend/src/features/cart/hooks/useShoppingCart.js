@@ -1,7 +1,6 @@
 import { Store } from '@/context/Store'
 import { toast } from '@/hooks/use-toast'
 import { calculateSavings, calculateShipping } from '@/utils/pricing'
-import axios from 'axios'
 import { useContext, useEffect, useReducer } from 'react'
 import { useNavigate } from 'react-router'
 import { fetchRelatedProducts } from '../services/cartService'
@@ -94,8 +93,7 @@ export default function useShoppingCart () {
    */
   const updateCartHandler = async (item, quantity) => {
     try {
-      const { data } = await axios.get(`/api/products/${item._id}`)
-      if (data.stock < quantity) {
+      if (item.stock < quantity) {
         toast({
           title: 'Producto agotado',
           description: 'Lo sentimos, el producto no está disponible.',

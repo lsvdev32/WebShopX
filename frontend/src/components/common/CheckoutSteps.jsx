@@ -7,15 +7,15 @@ import PropTypes from 'prop-types'
 
 export default function CheckoutSteps ({ steps, currentStep }) {
   return (
-    <div className='flex flex-wrap justify-between items-center text-gray-400 mb-5'>
+    <div className='flex flex-wrap justify-between items-center text-muted-foreground mb-5'>
       {steps.map((step, index) => (
         <div
           key={step}
           className={`w-full sm:w-1/3 py-2 border-b-2 flex justify-center items-center 
         ${
           index <= currentStep - 1
-            ? 'border-yellow-500 text-[#1a2238] font-semibold'
-            : 'border-gray-400'
+            ? 'border-yellow-500 text-foreground font-semibold'
+            : 'border-border'
         }
         ${index !== currentStep - 1 ? 'hidden sm:flex' : 'flex'}`}
         >

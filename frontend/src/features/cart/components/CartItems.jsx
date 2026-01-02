@@ -12,18 +12,18 @@ export default function CartItems ({ cartItems, updateCartHandler, removeItemHan
   return (
     <CardWrapper className='lg:col-span-2 p-6'>
       <div className='mb-6'>
-        <h2 className='text-2xl font-bold text-gray-900'>Carrito de compras</h2>
+        <h2 className='text-2xl font-semibold text-foreground'>Carrito de compras</h2>
       </div>
       {/* Mostramos titulos para ser mas intuitivos */}
-      <div className='hidden md:grid grid-cols-12 gap-4 pb-4 border-b border-gray-200 mb-4'>
+      <div className='hidden md:grid grid-cols-12 gap-4 pb-4 border-b border-border mb-4'>
         <div className='col-span-6'>
-          <span className='text-xs font-medium text-gray-500 uppercase tracking-wider'>Producto</span>
+          <span className='text-xs font-medium text-muted-foreground uppercase tracking-wider'>Producto</span>
         </div>
         <div className='col-span-3 text-center'>
-          <span className='text-xs font-medium text-gray-500 uppercase tracking-wider'>Cantidad</span>
+          <span className='text-xs font-medium text-muted-foreground uppercase tracking-wider'>Cantidad</span>
         </div>
         <div className='col-span-3 text-right'>
-          <span className='text-xs font-medium text-gray-500 uppercase tracking-wider'>Precio</span>
+          <span className='text-xs font-medium text-muted-foreground uppercase tracking-wider'>Precio</span>
         </div>
       </div>
       <div className='space-y-4 md:space-y-6'>

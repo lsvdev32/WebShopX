@@ -70,7 +70,7 @@ export const getOrderTableColumns = ({ handleViewDetails, handleMarkAsDelivered,
           {/* Si la orden ya fue pagada, mostramos un badge de color verde, si no, mostramos un badge de color rojo */}
           <Badge
             variant='outline'
-            className={isPaid ? 'text-green-600 border-green-500' : 'text-red-600 border-red-500'}
+            className={isPaid ? 'text-success text-xs border-success dark:text-success dark:border-success' : 'text-red-600 text-xs border-red-600 dark:text-red-400 dark:border-red-400'}
           >
             {isPaid ? 'PAGADA' : 'NO PAGADA'}
           </Badge>
@@ -90,7 +90,7 @@ export const getOrderTableColumns = ({ handleViewDetails, handleMarkAsDelivered,
           {/* Si la orden ya fue entregada, mostramos un badge de color verde, si no, mostramos un badge de color rojo */}
           <Badge
             variant='outline'
-            className={isDelivered ? 'text-green-600 border-green-500' : 'text-red-600 border-red-500'}
+            className={isDelivered ? 'text-success text-xs border-success dark:text-success dark:border-success' : 'text-red-600 text-xs border-red-600 dark:text-red-400 dark:border-red-400'}
           >
             {isDelivered ? 'ENTREGADA' : 'NO ENTREGADA'}
           </Badge>

@@ -3,10 +3,10 @@ import CardWrapper from '@/components/common/CardWrapper'
 import Container from '@/components/common/Container'
 import { MessageBox } from '@/components/common/MessageBox'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { CategoryCard } from './CategoryCards'
 import CategoryCarouselSkeleton from './CategoryCarouselSkeleton'
-import { ChevronDown, ChevronUp } from 'lucide-react'
 
 /**
  * Seccion de carrusel de categorías
@@ -68,16 +68,16 @@ export default function CategoryCarouselSection ({ categories, loading, error })
               : (
                 <>
                   <div className='mb-6 flex items-center justify-between'>
-                    <h2 className='text-start text-2xl font-light text-[#1a2238]'>Buscar por categorías</h2>
+                    <h2 className='text-start text-2xl font-light text-card-foreground'>Buscar por categorías</h2>
                     <div className='hidden md:flex items-center'>
-                      <a href='#' className='text-blue-500 hover:underline' aria-label='Mostrar todas las categorías'>
+                      <a href='#' className='text-card-foreground hover:text-primary-hover transition-colors hover:underline' aria-label='Mostrar todas las categorías'>
                         Mostrar todas las categorías
                       </a>
                       <div className='ml-4 flex'>
                         {Array.from({ length: count }).map((_, index) => (
                           <span
                             key={index}
-                            className={`mx-0.5 h-2 w-2 rounded-full cursor-pointer ${current === index ? 'bg-blue-500' : 'bg-gray-300'}`}
+                            className={`mx-0.5 h-2 w-2 rounded-full cursor-pointer transition-colors ${current === index ? 'bg-primary' : 'bg-muted'}`}
                             onClick={() => api?.scrollTo(index)}
                             role='button'
                             tabIndex={0}
@@ -105,7 +105,7 @@ export default function CategoryCarouselSection ({ categories, loading, error })
                     {hasMoreCategories && (
                       <button
                         onClick={() => setShowAll(!showAll)}
-                        className='mt-6 w-full flex items-center justify-center gap-2 py-3 px-4 bg-transparent font-light'
+                        className='mt-6 w-full flex items-center justify-center gap-2 py-3 px-4 bg-transparent font-light text-foreground hover:text-primary transition-colors'
                         aria-expanded={showAll}
                       >
                         {showAll

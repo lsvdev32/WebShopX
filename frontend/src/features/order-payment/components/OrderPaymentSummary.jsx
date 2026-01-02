@@ -25,7 +25,7 @@ export default function OrderPaymentSummary ({
   onPayPalError
 }) {
   return (
-    <CardWrapper className='w-full bg-[#1a2238] text-gray-200'>
+    <CardWrapper className='w-full bg-primary text-primary-foreground'>
       <CardHeader>
         <CardTitle>Resumen del pedido</CardTitle>
       </CardHeader>
@@ -38,25 +38,27 @@ export default function OrderPaymentSummary ({
           <p>Gastos de envío</p>
           {shippingPrice === 0
             ? (
-              <Badge variant='outline' className='text-green-600'>Gratis</Badge>
+              <Badge variant='outline' className='text-success border-success bg-success/10 dark:text-success dark:border-success dark:bg-success/10'>
+                Gratis
+              </Badge>
               )
             : (
               <p>{formatPrice(shippingPrice)}</p>
               )}
         </div>
-        <div className='flex justify-between text-red-500'>
+        <div className='flex justify-between text-destructive'>
           <p>Ahorro total</p>
           <p>- {formatPrice(savingsPrice)}</p>
         </div>
-        <Separator />
-        <div className='flex justify-between font-bold'>
+        <Separator className='bg-primary-foreground/20' />
+        <div className='flex justify-between font-semibold'>
           <p>Total:</p>
           <p>{formatPrice(totalPrice)}</p>
         </div>
         {!isPaid && (
           <div className='pt-6'>
-            <p className='text-center text-xs text-gray-500 italic'>
-              <span className='text-gray-300'>Nota:</span> Recuerda que puedes pagar tus órdenes cuando desees. Solo ve a tu historial de órdenes, la seleccionas, la pagas y listo :)
+            <p className='text-center text-xs text-muted-foreground italic'>
+              <span className='text-muted-foreground font-semibold'>Nota:</span> Recuerda que puedes pagar tus órdenes cuando desees. Solo ve a tu historial de órdenes, la seleccionas, la pagas y listo :)
             </p>
             {/* Utilizamos el componente PayPalPayment para procesar el pago de la orden */}
             <PayPalPayment

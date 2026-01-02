@@ -1,4 +1,5 @@
 import { Skeleton } from '@/components/ui/skeleton'
+import { Card } from '@/components/ui/card'
 
 /**
  * Skeleton de carga para la vista de detalles del producto.
@@ -6,67 +7,124 @@ import { Skeleton } from '@/components/ui/skeleton'
  * Incluye una galería de imágenes, información del producto, botones de acción y pestañas de descripción.
  * @returns {JSX.Element} Componente de esqueleto de vista de producto.
  */
-export default function ProductViewSkeleton () {
+export default function ProductDetailScreenSkeleton () {
   return (
-    <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
-      {/* Galeria de imagenes */}
-      <div className='lg:col-span-2 flex flex-col md:flex-row gap-3'>
-        {/* Imagen principal */}
-        <div className='w-full order-1 md:order-2 md:flex-1'>
-          <Skeleton className='w-full h-80 md:h-96 rounded-lg' />
+    <div className='grid md:grid-cols-[1fr_400px] gap-6'>
+      {/* Columna izquierda: Galería + Descripción */}
+      <div className='space-y-6'>
+        {/* Galería de imágenes */}
+        <div className='flex gap-4'>
+          {/* Thumbnails verticales */}
+          <div className='flex flex-col gap-2'>
+            {[1, 2, 3, 4].map((_, idx) => (
+              <Skeleton
+                key={idx}
+                className='w-20 h-20 rounded-lg flex-shrink-0'
+              />
+            ))}
+          </div>
+
+          {/* Imagen principal */}
+          <div className='flex-1 bg-card rounded-lg'>
+            <Skeleton className='w-full aspect-square max-h-[450px]' />
+          </div>
         </div>
-        {/* Thumbnails */}
-        <div className='flex flex-row md:flex-col gap-2 overflow-x-auto order-2 md:order-1 mt-4 md:mt-0'>
-          {[1, 2, 3].map((_, idx) => (
-            <Skeleton key={idx} className='min-w-[80px] w-20 h-20 rounded-lg' />
-          ))}
+
+        {/* Pestañas de Descripción/Reseñas */}
+        <div className='space-y-4'>
+          {/* Tabs */}
+          <div className='border-b border-border flex gap-4'>
+            <Skeleton className='h-7 w-28 mb-2' />
+            <Skeleton className='h-7 w-28 mb-2' />
+          </div>
+
+          {/* Contenido de la descripción */}
+          <div className='space-y-4 py-2'>
+            <Skeleton className='h-6 w-48' />
+            <div className='space-y-2'>
+              <Skeleton className='h-4 w-full' />
+              <Skeleton className='h-4 w-full' />
+              <Skeleton className='h-4 w-4/5' />
+            </div>
+
+            <Skeleton className='h-6 w-40 mt-6' />
+            <div className='space-y-2'>
+              <Skeleton className='h-4 w-full' />
+            </div>
+
+            <Skeleton className='h-6 w-44 mt-6' />
+            <div className='space-y-2'>
+              <Skeleton className='h-4 w-full' />
+              <Skeleton className='h-4 w-full' />
+              <Skeleton className='h-4 w-3/4' />
+            </div>
+
+            <Skeleton className='h-6 w-36 mt-6' />
+            <div className='space-y-2'>
+              <Skeleton className='h-4 w-full' />
+              <Skeleton className='h-4 w-full' />
+              <Skeleton className='h-4 w-full' />
+              <Skeleton className='h-4 w-2/3' />
+            </div>
+          </div>
         </div>
       </div>
-      {/* Informacion del producto */}
-      <div className='flex flex-col gap-3'>
-        {/* Titulo */}
-        <Skeleton className='h-10 w-full rounded' />
-        {/* Calificacion */}
-        <Skeleton className='h-5 w-1/3 rounded' />
-        {/* Precio */}
-        <Skeleton className='h-12 w-3/4 rounded' />
-        <div className='flex flex-col gap-1'>
-          <Skeleton className='h-4 w-full rounded' />
-          <Skeleton className='h-4 w-1/3 rounded' />
-        </div>
-        {/* Descripcion */}
-        <div className='flex flex-col gap-1'>
-          <Skeleton className='h-4 w-1/2 rounded my-2' />
-          <Skeleton className='h-4 w-5/6 rounded' />
-          <Skeleton className='h-4 w-5/6 rounded' />
-          <Skeleton className='h-4 w-1/3 rounded' />
-        </div>
-        {/* Boton */}
-        <div className='flex gap-2 mt-3'>
-          <Skeleton className='h-10 w-full rounded' />
-        </div>
-        <div className='flex flex-col gap-1'>
-          <Skeleton className='h-4 w-2/3 rounded' />
-          <Skeleton className='h-4 w-2/3 rounded' />
-          <Skeleton className='h-4 w-2/3 rounded' />
-        </div>
-      </div>
-      {/* Descripcion o reseñas */}
-      <div className='col-span-2'>
-        <div className='border-b w-full flex'>
-          <Skeleton className='py-2 mr-2 font-medium text-sm w-1/6 rounded' />
-          <Skeleton className='py-2 font-medium text-sm w-1/6 rounded' />
-        </div>
-        {/* Descripcion */}
-        <div className='py-4'>
-          <Skeleton className='h-4 w-1/3 rounded mb-2' />
-          <Skeleton className='h-4 w-full rounded mb-2' />
-          <Skeleton className='h-4 w-full rounded mb-2' />
-          <Skeleton className='h-4 w-full rounded mb-2' />
-          <Skeleton className='h-4 w-full rounded mb-2' />
-          <Skeleton className='h-4 w-1/3 rounded mb-2' />
-          <Skeleton className='h-4 w-1/3 rounded mb-2' />
-        </div>
+
+      {/* Columna derecha: Información del producto */}
+      <div className='space-y-4'>
+        <Card className='p-6 space-y-4 sticky top-20'>
+          {/* Título */}
+          <Skeleton className='h-7 w-full' />
+          <Skeleton className='h-7 w-3/4' />
+
+          {/* Rating */}
+          <div className='flex items-center gap-2'>
+            <div className='flex gap-1'>
+              {[1, 2, 3, 4, 5].map((_, idx) => (
+                <Skeleton key={idx} className='h-5 w-5' />
+              ))}
+            </div>
+            <Skeleton className='h-4 w-20' />
+          </div>
+
+          {/* Precio */}
+          <Skeleton className='h-10 w-48' />
+
+          {/* Cuotas */}
+          <Skeleton className='h-5 w-full' />
+
+          {/* Características */}
+          <div className='space-y-3 pt-2'>
+            <Skeleton className='h-5 w-32' />
+            <div className='space-y-2'>
+              <Skeleton className='h-4 w-52' />
+              <Skeleton className='h-4 w-64' />
+              <div className='flex items-center gap-2'>
+                <Skeleton className='h-4 w-20' />
+                <Skeleton className='h-4 w-24 rounded-full' />
+              </div>
+            </div>
+          </div>
+
+          {/* Botón agregar al carrito */}
+          <Skeleton className='h-11 w-full rounded-lg' />
+
+          {/* Información adicional */}
+          <div className='space-y-3 pt-2'>
+            <div className='flex items-center gap-3'>
+              <Skeleton className='h-5 w-5' />
+              <Skeleton className='h-4 w-48' />
+            </div>
+            <div className='flex items-center gap-3'>
+              <Skeleton className='h-5 w-5' />
+              <Skeleton className='h-4 w-40' />
+            </div>
+            <div className='flex items-center gap-3'>
+              <Skeleton className='h-5 w-5' />
+              <Skeleton className='h-4 w-44' />
+            </div>
+          </div>
+        </Card>
       </div>
     </div>
   )

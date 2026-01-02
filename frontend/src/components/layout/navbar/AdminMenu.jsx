@@ -25,7 +25,7 @@ export default function AdminMenu () {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className='flex items-center space-x-2 text-gray-700 dark:bg-[#202A39] dark:text-gray-300'>
+          <NavigationMenuTrigger className='flex items-center space-x-2 text-foreground bg-background'>
             <span>Administrador</span>
             <Settings className='w-4 h-4' />
           </NavigationMenuTrigger>

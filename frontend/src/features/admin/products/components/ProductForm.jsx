@@ -48,7 +48,7 @@ export default function ProductForm ({ product, setOpenModal, onSuccess }) {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit} className='space-y-8'>
+      <form onSubmit={handleSubmit} className='space-y-8 bg-card'>
         <div className='grid grid-cols-2 gap-3'>
 
           <FormField
@@ -56,7 +56,7 @@ export default function ProductForm ({ product, setOpenModal, onSuccess }) {
             name='name'
             render={({ field }) => (
               <FormItem>
-                <FormLabel className='text-gray-600 font-medium'>Nombre</FormLabel>
+                <FormLabel className='text-foreground font-medium'>Nombre</FormLabel>
                 <FormControl>
                   <Input
                     placeholder='Nombre del producto...'
@@ -75,7 +75,7 @@ export default function ProductForm ({ product, setOpenModal, onSuccess }) {
             name='link'
             render={({ field }) => (
               <FormItem>
-                <FormLabel className='text-gray-600 font-medium'>Link</FormLabel>
+                <FormLabel className='text-foreground font-medium'>Link</FormLabel>
                 <FormControl>
                   <Input placeholder='URL del producto...' {...field} aria-label='URL del producto' readOnly />
                 </FormControl>
@@ -104,9 +104,9 @@ export default function ProductForm ({ product, setOpenModal, onSuccess }) {
             name='description'
             render={({ field }) => (
               <FormItem className='col-span-2'>
-                <FormLabel className='text-gray-600 font-medium'>Descripción</FormLabel>
+                <FormLabel className='text-foreground font-medium'>Descripción</FormLabel>
                 <FormControl>
-                  <Textarea placeholder='Describe tu producto...' {...field} className='min-h-36 bg-gray-50' aria-label='Descripción del producto' />
+                  <Textarea placeholder='Describe tu producto...' {...field} className='min-h-36 bg-background' aria-label='Descripción del producto' />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -118,7 +118,7 @@ export default function ProductForm ({ product, setOpenModal, onSuccess }) {
             name='brand'
             render={({ field }) => (
               <FormItem>
-                <FormLabel className='text-gray-600 font-medium'>Marca</FormLabel>
+                <FormLabel className='text-foreground font-medium'>Marca</FormLabel>
                 <FormControl>
                   <Input placeholder='Marca del producto...' {...field} aria-label='Marca del producto' />
                 </FormControl>
@@ -132,7 +132,7 @@ export default function ProductForm ({ product, setOpenModal, onSuccess }) {
             name='category'
             render={({ field }) => (
               <FormItem>
-                <FormLabel className='text-gray-600 font-medium'>Categoría</FormLabel>
+                <FormLabel className='text-foreground font-medium'>Categoría</FormLabel>
                 {field.value === 'Otra'
                   ? (
                     <FormControl>
@@ -148,7 +148,7 @@ export default function ProductForm ({ product, setOpenModal, onSuccess }) {
                   : (
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
-                        <SelectTrigger aria-label='Seleccionar categoría' className='bg-gray-50'>
+                        <SelectTrigger aria-label='Seleccionar categoría' className='bg-background border-border'>
                           <SelectValue placeholder='Selecciona una categoría' />
                         </SelectTrigger>
                       </FormControl>
@@ -171,7 +171,7 @@ export default function ProductForm ({ product, setOpenModal, onSuccess }) {
             name='price'
             render={({ field }) => (
               <FormItem>
-                <FormLabel className='text-gray-600 font-medium'>Precio</FormLabel>
+                <FormLabel className='text-foreground font-medium'>Precio</FormLabel>
                 <FormControl>
                   <Input type='number' placeholder='Precio del producto...' {...field} aria-label='Precio del producto' />
                 </FormControl>
@@ -185,7 +185,7 @@ export default function ProductForm ({ product, setOpenModal, onSuccess }) {
             name='stock'
             render={({ field }) => (
               <FormItem>
-                <FormLabel className='text-gray-600 font-medium'>Stock</FormLabel>
+                <FormLabel className='text-foreground font-medium'>Stock</FormLabel>
                 <FormControl>
                   <Input
                     type='text'

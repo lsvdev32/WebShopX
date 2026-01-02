@@ -27,24 +27,28 @@ export default function ProductTabs ({
 
   return (
     <div className='mt-8'>
-      <div className='border-b flex'>
+      <div className='border-b border-border flex'>
         <button
           onClick={() => setActiveTab('description')}
-          className={`py-2 px-4 font-medium text-sm ${
-            activeTab === 'description' ? 'border-b-2 border-black text-black' : 'text-gray-500'
+          className={`py-2 px-4 font-medium text-sm transition-colors ${
+            activeTab === 'description'
+              ? 'border-b-2 border-primary text-primary'
+              : 'text-muted-foreground hover:text-foreground'
           }`}
         >
           Descripción
         </button>
         <button
           onClick={() => setActiveTab('reviews')}
-          className={`py-2 px-4 font-medium text-sm flex items-center ${
-            activeTab === 'reviews' ? 'border-b-2 border-black text-black' : 'text-gray-500'
+          className={`py-2 px-4 font-medium text-sm flex items-center transition-colors ${
+            activeTab === 'reviews'
+              ? 'border-b-2 border-primary text-primary'
+              : 'text-muted-foreground hover:text-foreground'
           }`}
         >
           Reseñas
           {product.numReviews > 0 && (
-            <span className='ml-1 bg-gray-200 text-gray-700 text-xs px-1.5 py-0.5 rounded-full'>
+            <span className='ml-1 bg-muted text-muted-foreground text-xs px-1.5 py-0.5 rounded-full'>
               {product.numReviews}
             </span>
           )}
@@ -60,7 +64,10 @@ export default function ProductTabs ({
             </div>
             <div className='mt-4 text-center'>
               {userInfo && !showReviewForm && (
-                <button onClick={toggleReviewForm} className='text-blue-600 hover:underline'>
+                <button
+                  onClick={toggleReviewForm}
+                  className='text-primary hover:text-primary-hover hover:underline transition-colors'
+                >
                   ¿Quieres opinar sobre este producto?
                 </button>
               )}

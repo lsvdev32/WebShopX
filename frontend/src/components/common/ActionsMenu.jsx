@@ -57,7 +57,7 @@ export default function ActionsMenu ({ actions }) {
                 className='flex justify-between hover:cursor-pointer p-2'
               >
                 {action.label}
-                {action.icon && <action.icon className='w-4 h-4 text-gray-600 ml-2' />}
+                {action.icon && <action.icon className='w-4 h-4 text-foreground ml-2' />}
               </DropdownMenuItem>
               {index !== actions.length - 1 && <DropdownMenuSeparator />}
             </div>

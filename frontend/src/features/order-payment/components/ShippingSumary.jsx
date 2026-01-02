@@ -15,26 +15,28 @@ export default function ShippingSummary ({ shippingAddress, paymentMethod, isDel
   return (
     <CardWrapper>
       <CardContent className='py-4'>
-        <CardTitle className='mb-2 text-xl font-semibold'>Información de envío</CardTitle>
+        <CardTitle className='mb-2 text-xl font-semibold text-foreground'>
+          Información de envío
+        </CardTitle>
         <div className='space-y-3 mb-2'>
-          <p>
-            <span className='text-lg font-semibold'>Nombre:</span> {shippingAddress.fullName}
+          <p className='text-foreground'>
+            <span className='text-lg font-semibold'>Nombre:</span> <span className='font-light'>{shippingAddress.fullName}</span>
           </p>
-          <p>
-            <span className='text-lg font-semibold'>Teléfono:</span> {shippingAddress.phone}
+          <p className='text-foreground'>
+            <span className='text-lg font-semibold'>Teléfono:</span> <span className='font-light'>{shippingAddress.phone}</span>
           </p>
-          <p>
-            <span className='text-lg font-semibold'>Dirección:</span> {shippingAddress.address}, {shippingAddress.city}, {shippingAddress.postalCode}, {shippingAddress.country}
+          <p className='text-foreground'>
+            <span className='text-lg font-semibold'>Dirección:</span> <span className='font-light'>{shippingAddress.address}, {shippingAddress.city}, {shippingAddress.postalCode}, {shippingAddress.country}</span>
           </p>
           {paymentMethod && (
-            <p>
+            <p className='text-foreground'>
               <span className='text-lg font-semibold'>Método de pago:</span> {paymentMethod}
             </p>
           )}
         </div>
         {isDelivered
           ? (
-            <Alert className='mt-2 border-green-500 text-gray-600'>
+            <Alert className='mt-2 border-success text-success'>
               <AlertTitle>Entregado</AlertTitle>
               <AlertDescription>Fecha de entrega: {formatDateTime(deliveredAt)}</AlertDescription>
             </Alert>

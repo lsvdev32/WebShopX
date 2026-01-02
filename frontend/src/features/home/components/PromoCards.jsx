@@ -20,7 +20,7 @@ export function HorizontalPromoCard ({
   return (
     <div
       className={cn(
-        'flex overflow-hidden rounded-lg bg-white shadow-sm',
+        'flex overflow-hidden rounded-lg bg-card shadow-sm',
         imagePosition === 'left' ? 'flex-row-reverse' : 'flex-row',
         className
       )}
@@ -29,7 +29,7 @@ export function HorizontalPromoCard ({
       <div className='flex flex-1 flex-col justify-between p-6'>
         <div className='space-y-2'>
           <p className='text-sm font-medium uppercase tracking-wider text-gray-500'>{tagline}</p>
-          <h3 className='text-2xl font-bold text-gray-800'>{title}</h3>
+          <h3 className='text-2xl font-bold text-card-foreground'>{title}</h3>
         </div>
         <button className='mt-4 inline-flex h-10 w-fit items-center justify-center rounded-md bg-blue-500 px-8 text-sm font-medium text-white transition-colors hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500'>
           {ctaText}

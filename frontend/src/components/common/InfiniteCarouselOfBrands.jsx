@@ -27,7 +27,7 @@ export function InfiniteCarouselOfBrands () {
                 <img
                   src={src}
                   alt={`${name} logo`}
-                  className='max-h-full max-w-full object-contain'
+                  className='max-h-full max-w-full object-contain dark:brightness-0 dark:invert dark:opacity-90'
                 />
               </div>
             ))}

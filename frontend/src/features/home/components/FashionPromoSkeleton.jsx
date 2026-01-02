@@ -10,8 +10,8 @@ export default function FashionPromoSkeleton () {
   return (
     <section className='py-6'>
       <Container>
-        <div className='h-64 bg-gray-200 rounded-lg animate-pulse' />
-        <div className='my-10 h-16 bg-gray-200 rounded animate-pulse' />
+        <div className='h-64 bg-card rounded-lg animate-pulse' />
+        <div className='my-10 h-16 bg-card rounded animate-pulse' />
       </Container>
     </section>
   )

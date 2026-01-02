@@ -53,6 +53,7 @@ export default function OrderHistoryTable ({ orders }) {
                       size='sm'
                       onClick={() => navigate(`/order/${order._id}`)}
                       aria-label={`Ver detalles de la orden ${order._id}`}
+                      className='dark:bg-transparent'
                     >
                       Detalles
                     </Button>

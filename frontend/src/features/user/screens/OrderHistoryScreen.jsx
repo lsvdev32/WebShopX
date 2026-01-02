@@ -28,7 +28,7 @@ export default function OrderHistoryScreen () {
         <Helmet>
           <title>Historial de compras | WebShopX</title>
         </Helmet>
-        <div className='mb-6 flex flex-col sm:flex-row gap-4'>
+        <div className='mb-6 flex flex-col sm:flex-row gap-4 bg-card w-fit p-2 rounded-sm'>
           <Input
             type='text'
             placeholder='Buscar por ID de orden'
@@ -39,7 +39,7 @@ export default function OrderHistoryScreen () {
           />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant='outline' aria-label='Seleccionar criterio de ordenamiento'>
+              <Button variant='outline' className='bg-background text-muted-foreground dark:bg-background dark:border-border' aria-label='Seleccionar criterio de ordenamiento'>
                 {sortOrder === 'recent' ? 'Más recientes' : 'Más antiguas'}
               </Button>
             </DropdownMenuTrigger>

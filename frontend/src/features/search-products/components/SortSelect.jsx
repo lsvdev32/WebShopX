@@ -23,7 +23,7 @@ export default function SortSelect ({ currentOrder, getFilterUrl }) {
       onValueChange={(value) => navigate(getFilterUrl({ order: value }))}
       aria-label='Ordenar productos'
     >
-      <SelectTrigger className='w-[180px] bg-white'>
+      <SelectTrigger className='w-[180px]'>
         <SelectValue placeholder='Ordenar por' />
       </SelectTrigger>
       <SelectContent>

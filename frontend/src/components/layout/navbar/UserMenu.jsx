@@ -30,7 +30,7 @@ export default function UserMenu ({ userInfo, signoutHandler }) {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className='flex items-center space-x-2 text-gray-700 dark:bg-[#202A39] dark:text-gray-300'>
+          <NavigationMenuTrigger className='flex items-center space-x-2 text-foreground bg-background'>
             <span>{userInfo.name}</span>
           </NavigationMenuTrigger>
           <NavigationMenuContent className='min-w-[200px] p-2 shadow-lg rounded-md'>

@@ -16,29 +16,29 @@ export default function ProductDetails ({ product, onAddToCart }) {
   return (
     <Card className='sticky top-3 border-none shadow-none'>
       <div className='space-y-4 p-6'>
-        <h1 className='text-start text-md sm:text-2xl font-semibold'>{product.name}</h1>
+        <h1 className='text-start text-md sm:text-2xl text-foreground font-semibold'>{product.name}</h1>
         <Ratings ratings={product.ratings} numReviews={product.numReviews} />
         <div className='flex items-baseline gap-3'>
-          <p className='text-4xl font-light'>{formatPrice(product.price)}</p>
+          <p className='text-4xl font-light text-foreground'>{formatPrice(product.price)}</p>
           {product.oldPrice && (
-            <span className='text-gray-400 line-through text-lg'>{formatPrice(product.oldPrice)}</span>
+            <span className='text-muted-foreground line-through text-lg'>{formatPrice(product.oldPrice)}</span>
           )}
         </div>
         {installmentPrice && (
           <p className='mt-1 text-sm'>
-            en <span className='text-green-600 dark:text-green-700'>3 cuotas de {installmentPrice} con 0% de intereses</span>
+            en <span className='text-success'>3 cuotas de {installmentPrice} con 0% de intereses</span>
           </p>
         )}
-        <div className='text-gray-900'>
+        <div className='text-foreground'>
           <h2 className='font-semibold mb-4'>Características</h2>
-          <ul className='list-disc list-inside text-gray-700 space-y-1'>
+          <ul className='list-disc list-inside text-muted-foreground space-y-1'>
             <li>Marca: {product.brand}</li>
             <li>Stock: {product.stock} unidades disponibles</li>
             <li>
               Estado:
               <Badge
                 variant='outline'
-                className={product.stock > 0 ? 'text-green-600 border-green-500 ml-2' : 'text-red-600 border-red-500 ml-2'}
+                className={product.stock > 0 ? 'text-success border-success dark:text-success dark:border-success ml-2' : 'text-destructive border-destructive dark:text-destructive dark:border-destructive ml-2'}
               >
                 {product.stock > 0 ? 'Disponible' : 'No disponible'}
               </Badge>
@@ -47,20 +47,20 @@ export default function ProductDetails ({ product, onAddToCart }) {
         </div>
         {product.stock > 0 && (
           <div className='flex items-center gap-2 mt-4'>
-            <Button onClick={onAddToCart} className='w-full'>Agregar al carrito</Button>
+            <Button onClick={onAddToCart} className='w-full bg-primary text-primary-foreground hover:bg-primary-hover'>Agregar al carrito</Button>
           </div>
         )}
-        <div className='space-y-1 text-gray-500'>
+        <div className='space-y-1 text-muted-foreground'>
           <div className='flex items-center gap-3'>
-            <Truck className='text-gray-500 w-5 h-5' />
+            <Truck className='text-muted-foreground w-5 h-5' />
             <span>Envío gratis a todo el país</span>
           </div>
           <div className='flex items-center gap-3'>
-            <CreditCard className='text-gray-500 w-5 h-5' />
+            <CreditCard className='text-muted-foreground w-5 h-5' />
             <span>Pagos 100% seguros</span>
           </div>
           <div className='flex items-center gap-3'>
-            <User className='text-gray-500 w-5 h-5' />
+            <User className='text-muted-foreground w-5 h-5' />
             <span>Vendedores confiables</span>
           </div>
         </div>

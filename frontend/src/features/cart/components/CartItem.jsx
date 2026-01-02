@@ -23,25 +23,25 @@ export default function CartItem ({ item, updateCartHandler, removeItemHandler, 
       {/* Vista de Computadora */}
       <div
         // Crea un borde en la parte inferior si no es el último elemento, sirve para dividir visualmente los productos
-        className={`hidden md:grid grid-cols-12 gap-4 items-center ${!isLast ? 'pb-6 border-b border-gray-100' : ''}`}
+        className={`hidden md:grid grid-cols-12 gap-4 items-center ${!isLast ? 'pb-6 border-b border-border' : ''}`}
       >
         <div className='col-span-6 flex items-center space-x-4'>
           <Link to={`/product/${item.link}`}>
             <img
               src={item.images?.[0] || '/placeholder.svg'}
               alt={item.name}
-              className='w-16 h-16 object-contain rounded-lg hover:scale-105 transition-transform cursor-pointer'
+              className='w-16 h-16 object-contain rounded-lg hover:scale-105 transition-transform cursor-pointer bg-white p-0'
               loading='lazy'
             />
           </Link>
           <div className='flex-1 min-w-0'>
             <Link
               to={`/product/${item.link}`}
-              className='block font-semibold text-gray-900 hover:text-gray-700 transition-colors'
+              className='block font-semibold text-foreground hover:text-primary-hover transition-colors'
             >
               {item.name}
             </Link>
-            {item.variant && <p className='text-sm text-gray-500 mt-1'>{item.variant}</p>}
+            {item.variant && <p className='text-sm text-foreground mt-1'>{item.variant}</p>}
           </div>
         </div>
         <div className='col-span-3 flex justify-center'>
@@ -62,12 +62,12 @@ export default function CartItem ({ item, updateCartHandler, removeItemHandler, 
           </Select>
         </div>
         <div className='col-span-3 flex items-center justify-end space-x-4'>
-          <span className='font-semibold text-gray-900'>{formatPrice(item.price)}</span>
+          <span className='font-semibold text-foreground'>{formatPrice(item.price)}</span>
           <Button
             variant='ghost'
             size='icon'
             onClick={() => removeItemHandler(item)}
-            className='text-gray-400 hover:text-gray-600 h-8 w-8'
+            className='text-primary-foreground hover:bg-primary-hover h-8 w-8'
           >
             <Trash2 className='w-4 h-4' />
           </Button>
@@ -76,7 +76,7 @@ export default function CartItem ({ item, updateCartHandler, removeItemHandler, 
 
       {/* Vista de teléfono */}
       <div
-        className={`md:hidden bg-white ${!isLast ? 'border-b border-gray-200 pb-4' : ''}`}
+        className={`md:hidden bg-card ${!isLast ? 'border-b border-border pb-4' : ''}`}
       >
         <div className='flex items-start space-x-4 relative'>
           <Link to={`/product/${item.link}`}>
@@ -91,18 +91,18 @@ export default function CartItem ({ item, updateCartHandler, removeItemHandler, 
               <div className='flex-1 min-w-0 pr-2'>
                 <Link
                   to={`/product/${item.link}`}
-                  className='block font-semibold text-gray-900 hover:text-gray-700 transition-colors text-sm leading-tight'
+                  className='block font-semibold text-foreground hover:text-primary-hover transition-colors text-sm leading-tight'
                 >
                   {item.name}
                 </Link>
-                {item.variant && <p className='text-sm text-gray-500 mt-1'>{item.variant}</p>}
-                <p className='text-lg font-semibold text-gray-900 mt-2'>{formatPrice(item.price)}</p>
+                {item.variant && <p className='text-sm text-foreground mt-1'>{item.variant}</p>}
+                <p className='text-lg font-semibold text-foreground mt-2'>{formatPrice(item.price)}</p>
               </div>
               <Button
                 variant='ghost'
                 size='icon'
                 onClick={() => removeItemHandler(item)}
-                className='text-gray-400 hover:text-gray-600 h-8 w-8 flex-shrink-0'
+                className='text-foreground hover:text-primary-hover h-8 w-8 flex-shrink-0'
               >
                 <Trash2 className='w-4 h-4' />
               </Button>

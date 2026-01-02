@@ -12,20 +12,22 @@ export function CategoryCard ({ className, title, imageSrc, imageAlt, href = '#'
     <Link
       to={href}
       className={cn(
-        'flex overflow-hidden rounded-sm border border-gray-200 bg-white transition-shadow hover:shadow-md',
+        'flex overflow-hidden rounded-sm border bg-white dark:bg-background text-card-foreground transition-all hover:shadow-md hover:border-primary/50',
         className
       )}
       {...props}
     >
-      <div className='flex w-[120px] items-center justify-center bg-gray-50 p-2'>
-        <img
-          src={imageSrc || '/placeholder.svg?height=80&width=80'}
-          alt={imageAlt || title}
-          className='h-full w-full object-contain'
-        />
+      <div className='flex w-[120px] items-center justify-center bg-background p-2'>
+        <div className='bg-white rounded-sm p-2'>
+          <img
+            src={imageSrc || '/placeholder.svg?height=80&width=80'}
+            alt={imageAlt || title}
+            className='h-full w-full object-contain'
+          />
+        </div>
       </div>
       <div className='flex flex-1 items-center p-4'>
-        <h3 className='text-base font-medium text-gray-900'>{title}</h3>
+        <h3 className='text-base font-medium'>{title}</h3>
       </div>
     </Link>
   )

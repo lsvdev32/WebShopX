@@ -20,7 +20,7 @@ export function PromoBanner ({
 }) {
   return (
     <CardWrapper
-      className={cn('relative flex overflow-hidden bg-[#1a2238] text-white', className)}
+      className={cn('relative flex overflow-hidden bg-primary text-primary-foreground', className)}
       {...props}
     >
       {/* Layout Mobile: Horizontal (imagen izquierda + contenido derecha) */}

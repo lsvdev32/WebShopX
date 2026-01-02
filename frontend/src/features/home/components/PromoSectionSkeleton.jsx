@@ -12,7 +12,7 @@ export default function PromoSectionSkeleton () {
       <Container>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 animate-pulse'>
           {[...Array(2).keys()].map((x) => (
-            <div key={x} className='h-64 bg-gray-200 rounded-lg' />
+            <div key={x} className='h-64 bg-card rounded-lg' />
           ))}
         </div>
       </Container>

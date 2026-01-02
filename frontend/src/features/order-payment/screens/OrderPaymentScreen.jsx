@@ -57,7 +57,7 @@ export default function OrderPaymentScreen () {
             : (
               <>
                 <header>
-                  <h1 className='text-2xl font-semibold'>ID Orden: #{order._id}</h1>
+                  <h1 className='text-2xl font-semibold text-foreground'>ID Orden: #{order._id}</h1>
                 </header>
                 <Separator className='mb-6 border-t-2 border-yellow-500' />
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
@@ -73,15 +73,15 @@ export default function OrderPaymentScreen () {
                     <article>
                       <CardWrapper>
                         <CardContent className='py-4'>
-                          <CardTitle className='mb-2 text-lg font-semibold'>Información de pago</CardTitle>
+                          <CardTitle className='mb-2 text-xl font-semibold text-foreground'>Información de pago</CardTitle>
                           <div className='mb-4 text-sm'>
                             <p>
-                              <span className='text-lg font-semibold'>Método de pago:</span> {order.paymentMethod}
+                              <span className='text-lg font-semibold text-foreground'>Método de pago:</span> {order.paymentMethod}
                             </p>
                           </div>
                           {order.isPaid
                             ? (
-                              <Alert className='mt-2 border-green-500 text-gray-600'>
+                              <Alert className='mt-2 border-success text-success'>
                                 <AlertTitle>Pagado</AlertTitle>
                                 <AlertDescription>Fecha de pago: {formatDateTime(order.paidAt)}</AlertDescription>
                               </Alert>

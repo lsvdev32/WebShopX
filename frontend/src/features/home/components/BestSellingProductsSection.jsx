@@ -13,7 +13,7 @@ import BestSellingProductsSkeleton from './BestSellingProductsSkeleton'
  */
 export default function BestSellingProductsSection ({ products, loading, error }) {
   return (
-    <AnimatedSection className='bg-[#1a2238] text-white'>
+    <AnimatedSection className='bg-primary text-primary-foreground'>
       <Container>
         <h1 className='text-start text-2xl font-light text-white mb-6'>Productos más vendidos</h1>
         {loading

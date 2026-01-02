@@ -57,7 +57,7 @@ export default function DataTable ({ data, columns, filterColumn, placeholderInp
   })
 
   return (
-    <CardWrapper className='w-full shadow-lg bg-background p-6'>
+    <CardWrapper className='w-full shadow-lg bg-card p-6'>
       <div className='flex items-center py-4'>
         <Input
           placeholder={`Buscar por ${placeholderInput}...`}

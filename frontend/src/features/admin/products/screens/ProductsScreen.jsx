@@ -41,7 +41,7 @@ export default function ProductsScreen () {
       <header className='flex items-center justify-between mb-6'>
         <div>
           <h1 className='text-2xl font-semibold'>Administrar productos disponibles</h1>
-          <p className='text-sm text-gray-400'>
+          <p className='text-sm text-muted-foreground'>
             Aquí puedes crear, actualizar y eliminar los productos de tu tienda.
           </p>
         </div>

@@ -23,14 +23,14 @@ export default function Ratings (props) {
           ) : ratings >= star - 0.5 ? (
             <StarHalf className='w-4 h-4 mb-2  text-yellow-400 fill-current' />
           ) : (
-            <Star className='w-4 h-4 mb-2  text-gray-300' />
+            <Star className='w-4 h-4 mb-2  text-muted-foreground font-extralight' />
           )}
         </span>
       ))}
       {caption ? (
-        <span className='ml-2 text-xs mb-2 text-gray-600'>{caption}</span>
+        <span className='ml-2 text-xs mb-2 text-foreground'>{caption}</span>
       ) : numReviews > 0 ? (
-        <span className='ml-2 text-xs mb-2 text-gray-600'>{numReviews} {numReviews === 1 ? 'Reseña' : 'Reseñas'}</span>
+        <span className='ml-2 line-clamp-1 overflow-hidden text-ellipsis text-xs mb-2 text-foreground'>{numReviews} {numReviews === 1 ? 'Reseña' : 'Reseñas'}</span>
       ) : null}
     </div>
   )
