@@ -67,7 +67,7 @@ export default function CartItem ({ item, updateCartHandler, removeItemHandler, 
             variant='ghost'
             size='icon'
             onClick={() => removeItemHandler(item)}
-            className='text-primary-foreground hover:bg-primary-hover h-8 w-8'
+            className='text-destructive hover:bg-red-100 hover:text-destructive dark:hover:text-destructive h-8 w-8'
           >
             <Trash2 className='w-4 h-4' />
           </Button>
@@ -102,7 +102,7 @@ export default function CartItem ({ item, updateCartHandler, removeItemHandler, 
                 variant='ghost'
                 size='icon'
                 onClick={() => removeItemHandler(item)}
-                className='text-foreground hover:text-primary-hover h-8 w-8 flex-shrink-0'
+                className='text-destructive hover:text-primary-hover h-8 w-8 flex-shrink-0'
               >
                 <Trash2 className='w-4 h-4' />
               </Button>
