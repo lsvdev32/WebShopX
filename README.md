@@ -5,7 +5,6 @@ Es una tienda online **genérica, escalable y adaptable** a cualquier nicho de m
 
 El proyecto se encuentra en un estado avanzado y está diseñado para seguir evolucionando con mejoras y nuevas funcionalidades en el futuro.
 
----
 
 ## 🚀 Características principales
 
@@ -21,7 +20,6 @@ El proyecto se encuentra en un estado avanzado y está diseñado para seguir evo
 - 🔔 Sistema de notificaciones
 - 🔒 Protección de rutas y control de acceso por roles
 
----
 
 ## 🧱 Stack tecnológico
 
@@ -49,7 +47,6 @@ El proyecto se encuentra en un estado avanzado y está diseñado para seguir evo
 - **Cloudinary** (gestión de imágenes)
 - **PayPal API** (procesamiento de pagos)
 
----
 
 ## 🔐 Autenticación y seguridad
 
@@ -59,7 +56,6 @@ El proyecto se encuentra en un estado avanzado y está diseñado para seguir evo
 - Protección de rutas con **middlewares**
 - Control de acceso por roles (Admin / Usuario)
 
----
 
 ## 📄 Documentación de la API
 
@@ -71,7 +67,6 @@ El backend cuenta con **documentación de la API**, facilitando el consumo, prue
 - Órdenes
 - Pagos
 
----
 
 ## 🖼️ Capturas de pantalla
 
@@ -105,3 +100,11 @@ A continuación se muestran algunas vistas principales de la aplicación WebShop
 <img width="1898" height="1289" alt="Image" src="https://github.com/user-attachments/assets/059dd493-64d9-4130-a88e-b81a020a3ae5" />
 
 <img width="1920" height="877" alt="Image" src="https://github.com/user-attachments/assets/c57c1d57-ddf0-4531-9e56-74d9353724f6" />
+<div align="center">
+  
+
+
+&copy; [lsvdev](https://github.com/lsvdev32/lsvdev32)
+</div>
+
+---
