@@ -10,14 +10,14 @@ import { generateLinkFromName } from '@/utils/generate-link-from-name'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { defaultCategories } from '../constants/categories'
+import { groupedCategories } from '../constants/categories'
 import { createProduct, updateProduct, uploadProductImages } from '../services/productService'
 
 export default function useProductForm ({ product, setOpenModal, onSuccess }) {
   const { state } = useContext(Store)
   const { userInfo } = state
   const [uploading, setUploading] = useState(false)
-  const [categories, setCategories] = useState(defaultCategories)
+  const [categories] = useState(groupedCategories)
   const [customCategory, setCustomCategory] = useState('')
   const [previewImages, setPreviewImages] = useState(product?.images || [])
 
@@ -121,13 +121,13 @@ export default function useProductForm ({ product, setOpenModal, onSuccess }) {
    * @param {*} value - Valor de la nueva categoría.
    * Se espera que el valor sea una cadena de texto.
    */
-  const handleCustomCategory = (value) => {
-    if (value.trim() !== '') {
-      const newCategory = { value, label: value }
-      setCategories([...categories.filter(c => c.value !== 'Otra'), newCategory, { value: 'Otra', label: 'Otra...' }])
-      form.setValue('category', value)
-    }
-  }
+  // const handleCustomCategory = (value) => {
+  //   if (value.trim() !== '') {
+  //     const newCategory = { value, label: value }
+  //     setCategories([...categories.filter(c => c.value !== 'Otra'), newCategory, { value: 'Otra', label: 'Otra...' }])
+  //     form.setValue('category', value)
+  //   }
+  // }
 
   /**
    * Maneja el envío del formulario.
@@ -184,7 +184,7 @@ export default function useProductForm ({ product, setOpenModal, onSuccess }) {
     handleUploadImages,
     handleRemoveImage,
     handleSetPrimaryImage,
-    handleCustomCategory,
+    // handleCustomCategory,
     handleNameChange: (e) => {
       form.setValue('name', e.target.value)
       form.setValue('link', generateLinkFromName(e.target.value))

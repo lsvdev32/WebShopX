@@ -17,7 +17,10 @@ import { Input } from '@/components/ui/input'
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
+  SelectSeparator,
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select'
@@ -146,20 +149,43 @@ export default function ProductForm ({ product, setOpenModal, onSuccess }) {
                     </FormControl>
                     )
                   : (
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select onValueChange={field.onChange} defaultValue={field.value} modal={false}>
                       <FormControl>
-                        <SelectTrigger aria-label='Seleccionar categoría' className='bg-background border-border'>
+                        <SelectTrigger className='bg-background border-border'>
                           <SelectValue placeholder='Selecciona una categoría' />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
-                        {categories.map((cat) => (
-                          <SelectItem key={cat.value} value={cat.value}>
-                            {cat.label}
-                          </SelectItem>
+
+                      <SelectContent
+                        className='max-h-[300px] overflow-y-auto'
+                        position='popper'
+                        sideOffset={5}
+                        onWheel={(e) => {
+                          e.stopPropagation()
+                        }}
+                      >
+                        {categories.map((group, index) => (
+                          <div key={group.group}>
+                            <SelectGroup>
+                              <SelectLabel className='text-xs font-semibold uppercase tracking-wide text-muted-foreground'>
+                                {group.group}
+                              </SelectLabel>
+
+                              {group.items.map((item) => (
+                                <SelectItem key={item.value} value={item.value}>
+                                  {item.label}
+                                </SelectItem>
+                              ))}
+                            </SelectGroup>
+
+                            {index < categories.length - 1 && (
+                              <SelectSeparator className='my-1 border' />
+                            )}
+                          </div>
                         ))}
                       </SelectContent>
                     </Select>
+
                     )}
                 <FormMessage />
               </FormItem>
