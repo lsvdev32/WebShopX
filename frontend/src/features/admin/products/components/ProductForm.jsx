@@ -49,6 +49,16 @@ export default function ProductForm ({ product, setOpenModal, onSuccess }) {
     handleSubmit
   } = useProductForm({ product, setOpenModal, onSuccess })
 
+  /**
+   * Formatea un número a formato de pesos colombianos (COP) con puntos de miles
+   * @param {number|string} value - Valor numérico a formatear
+   * @returns {string} Valor formateado con puntos (ej: "1.230.000")
+   */
+  const formatCOP = (value) => {
+    if (!value) return ''
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+  }
+
   return (
     <Form {...form}>
       <form onSubmit={handleSubmit} className='space-y-8 bg-card'>
@@ -199,7 +209,27 @@ export default function ProductForm ({ product, setOpenModal, onSuccess }) {
               <FormItem>
                 <FormLabel className='text-foreground font-medium'>Precio</FormLabel>
                 <FormControl>
-                  <Input type='number' placeholder='Precio del producto...' {...field} aria-label='Precio del producto' />
+                  <div className='relative'>
+                    <span className='absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground z-10 pointer-events-none'>
+                      $
+                    </span>
+                    <Input
+                      type='text'
+                      placeholder='0'
+                      value={formatCOP(field.value)}
+                      onChange={(e) => {
+                        // Remover todo excepto los números
+                        const numericValue = e.target.value.replace(/[^\d]/g, '')
+                        // Guardar como número en el formulario
+                        field.onChange(numericValue ? parseInt(numericValue, 10) : 0)
+                      }}
+                      className='pl-7'
+                      aria-label='Precio del producto'
+                    />
+                    <span className='absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm z-10 pointer-events-none'>
+                      COP
+                    </span>
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
