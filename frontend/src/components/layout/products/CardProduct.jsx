@@ -65,13 +65,13 @@ export default function CardProduct ({ product }) {
         </CardHeader>
         <CardContent className='p-3'>
           <Ratings ratings={product.ratings} numReviews={product.numReviews} />
-          <p className='min-h-fit line-clamp-2 overflow-hidden text-ellipsis text-xs text-foreground group-hover:text-primary transition-colors lg:min-h-fit'>
+          <p className='min-h-fit line-clamp-1 overflow-hidden text-ellipsis text-xs text-foreground group-hover:text-primary transition-colors lg:min-h-fit'>
             {product.name}
           </p>
           <p className='text-sm font-semibold mt-2 text-foreground'>{formatPrice(product.price)}</p>
           {installmentPrice && (
             <p className='mt-1 text-xs text-muted-foreground'>
-              en <span className='text-success line-clamp-1 overflow-hidden text-ellipsis'>3 cuotas de {installmentPrice} con 0% de intereses</span>
+              en <span className='text-success line-clamp-2 overflow-hidden text-ellipsis'>3 cuotas de {installmentPrice} con 0% de intereses</span>
             </p>
           )}
           <div className='mt-2 flex items-center gap-2 text-success'>

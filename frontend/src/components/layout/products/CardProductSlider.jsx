@@ -24,7 +24,7 @@ export default function CardProductSlider ({ product }) {
         </CardHeader>
         <CardContent className='p-3'>
           <Ratings ratings={product.ratings} numReviews={product.numReviews} />
-          <p className='min-h-fit line-clamp-2 overflow-hidden text-ellipsis text-xs text-foreground group-hover:text-primary transition-colors'>
+          <p className='min-h-fit line-clamp-1 overflow-hidden text-ellipsis text-xs text-foreground group-hover:text-primary transition-colors'>
             {product.name}
           </p>
           <p className='text-sm font-semibold mt-3 text-foreground'>{formatPrice(product.price)}</p>
