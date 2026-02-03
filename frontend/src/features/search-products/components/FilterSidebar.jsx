@@ -2,37 +2,15 @@ import CardWrapper from '@/components/common/CardWrapper'
 import { CardContent } from '@/components/ui/card'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
-import { formatPrice } from '@/utils/pricing'
 import { Star } from 'lucide-react'
 import { Link } from 'react-router'
+import { prices } from '../const/prices'
+import { ratings } from '../const/ratings'
 
 /**
  * Componente para la barra lateral de filtros en la página de búsqueda de productos.
  * Permite filtrar productos por categoría, precio y calificación.
  */
-
-/**
- * Genera un array de precios formateados para los filtros.
- * @returns {Array} Array de objetos con nombre y valor del rango de precios.
- */
-const prices = [
-  { name: formatPrice(10000, 100000), value: '10000-100000' },
-  { name: formatPrice(101000, 500000), value: '101000-500000' },
-  { name: formatPrice(501000, 1000000), value: '501000-1000000' },
-  { name: formatPrice(1000001, 2000000), value: '1000001-2000000' },
-  { name: formatPrice(2000001, 5000000), value: '2000001-5000000' },
-  { name: formatPrice(5000001, 10000000), value: '5000001-10000000' }
-]
-
-/**
- * Genera un array de calificaciones para los filtros.
- */
-const ratings = [
-  { name: '4 estrellas o más', rating: 4 },
-  { name: '3 estrellas o más', rating: 3 },
-  { name: '2 estrellas o más', rating: 2 },
-  { name: '1 estrella o más', rating: 1 }
-]
 
 export default function FilterSidebar ({ categories, currentCategory, currentPrice, currentRating, getFilterUrl, isMobile }) {
   const content = (
