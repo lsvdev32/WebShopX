@@ -327,7 +327,29 @@ export const getProductSearch = async (query) => {
 
   // Filtro por rango de precios (formato: "min-max")
   const priceFilter = price && price !== 'all'
-    ? { price: { $gte: Number(price.split('-')[0]), $lte: Number(price.split('-')[1]) } }
+    ? (() => {
+        const [min, max] = price.split('-').map(Number)
+
+        // Validación: ambos valores deben ser números válidos
+        if (isNaN(min) || isNaN(max)) {
+          console.warn(`Formato de precio inválido: ${price}`)
+          return {}
+        }
+
+        // Validación adicional: min debe ser menor que max
+        if (min > max) {
+          console.warn(`Rango de precio inválido: min (${min}) > max (${max})`)
+          return {}
+        }
+
+        // Validación adicional: valores deben ser positivos
+        if (min < 0 || max < 0) {
+          console.warn(`Valores negativos no permitidos: ${price}`)
+          return {}
+        }
+
+        return { price: { $gte: min, $lte: max } }
+      })()
     : {}
 
   // Determina criterio de ordenamiento
