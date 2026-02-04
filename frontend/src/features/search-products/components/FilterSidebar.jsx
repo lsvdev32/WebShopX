@@ -78,7 +78,7 @@ export default function FilterSidebar ({ categories, currentCategory, currentPri
             className={`block text-sm hover:text-primary transition-colors ${
               currentRating === 'all' ? 'text-primary font-medium' : 'text-muted-foreground'
             }`}
-            to={getFilterUrl({ rating: 'all' })}
+            to={getFilterUrl({ ratings: 'all' })} // CAMBIADO: rating → ratings
             aria-label='Todas las calificaciones'
           >
             Todas las calificaciones
@@ -89,7 +89,7 @@ export default function FilterSidebar ({ categories, currentCategory, currentPri
               className={`block text-sm hover:text-primary transition-colors ${
                 `${r.rating}` === currentRating ? 'text-primary font-medium' : 'text-muted-foreground'
               }`}
-              to={getFilterUrl({ rating: r.rating })}
+              to={getFilterUrl({ ratings: r.rating })} // CAMBIADO: rating → ratings
               aria-label={`Filtrar por calificación ${r.name}`}
             >
               <div className='flex items-center gap-1'>
@@ -101,7 +101,8 @@ export default function FilterSidebar ({ categories, currentCategory, currentPri
                     }`}
                   />
                 ))}
-                <span className='ml-1'>o más</span>
+                {/* agregamos el nombre de las calificaciones 'r.name' */}
+                <span className='ml-1 text-xs'>{r.name}</span>
               </div>
             </Link>
           ))}

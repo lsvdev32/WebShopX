@@ -47,13 +47,13 @@ export default function useProductSearch () {
   const category = sp.get('category') || 'all'
   const query = sp.get('query') || 'all'
   const price = sp.get('price') || 'all'
-  const rating = sp.get('rating') || 'all'
+  const ratings = sp.get('ratings') || 'all' // CAMBIADO: rating → ratings
   const order = sp.get('order') || 'newest'
   const page = sp.get('page') || 1
 
   /**
    * Estado del hook que maneja la búsqueda de productos
- * @type {Array} Estado y dispatch del reducer
+   * @type {Array} Estado y dispatch del reducer
    */
   const [{ loading, error, products, pages, countProducts }, dispatch] = useReducer(reducer, {
     loading: true,
@@ -77,7 +77,7 @@ export default function useProductSearch () {
           query,
           category,
           price,
-          rating,
+          ratings, // CAMBIADO: rating → ratings
           order,
           limit: PRODUCTS_PER_PAGE
         })
@@ -92,7 +92,7 @@ export default function useProductSearch () {
       }
     }
     loadProducts()
-  }, [category, order, page, price, query, rating])
+  }, [category, order, page, price, query, ratings]) // CAMBIADO: rating → ratings
 
   /**
    * Carga las categorías al montar el componente
@@ -123,10 +123,10 @@ export default function useProductSearch () {
     const filterPage = filter.page || page
     const filterCategory = filter.category || category
     const filterQuery = filter.query || query
-    const filterRating = filter.rating || rating
+    const filterRatings = filter.ratings || ratings // CAMBIADO: filterRating/rating → filterRatings/ratings
     const filterPrice = filter.price || price
     const sortOrder = filter.order || order
-    return `${skipPathname ? '' : '/search?'}category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`
+    return `${skipPathname ? '' : '/search?'}category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&ratings=${filterRatings}&order=${sortOrder}&page=${filterPage}` // ✅ CAMBIADO: rating → ratings
   }
 
   return {
@@ -138,7 +138,7 @@ export default function useProductSearch () {
     category,
     query,
     price,
-    rating,
+    ratings, // CAMBIADO: rating → ratings (para que FilterSidebar reciba currentRating correcto)
     order,
     page,
     categories,

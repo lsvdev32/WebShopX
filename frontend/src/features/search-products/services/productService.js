@@ -12,14 +12,14 @@ import api from '@/api/api'
  * @param {string} params.query - Consulta de búsqueda
  * @param {string} params.category - Categoría
  * @param {string} params.price - Rango de precio
- * @param {string} params.rating - Calificación mínima
+ * @param {string} params.ratings - Calificación mínima
  * @param {string} params.order - Ordenamiento
  * @param {number} params.limit - Límite de productos por página
  * @returns {Promise} Resultados de la búsqueda
  */
-export const searchProducts = async ({ page, query, category, price, rating, order, limit }) => {
+export const searchProducts = async ({ page, query, category, price, ratings, order, limit }) => {
   const { data } = await api.get(
-    `/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}&limit=${limit}`
+    `/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&ratings=${ratings}&order=${order}&limit=${limit}`
   )
   return data
 }

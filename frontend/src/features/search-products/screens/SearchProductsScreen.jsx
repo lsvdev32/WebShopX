@@ -26,7 +26,7 @@ export default function SearchProductsScreen () {
     category,
     query,
     price,
-    rating,
+    ratings,
     order,
     page,
     categories,
@@ -44,7 +44,7 @@ export default function SearchProductsScreen () {
           categories={categories}
           currentCategory={category}
           currentPrice={price}
-          currentRating={rating}
+          currentRating={ratings} // CAMBIADO: rating → ratings
           getFilterUrl={getFilterUrl}
         />
         <MobileSortDrawer currentOrder={order} getFilterUrl={getFilterUrl} />
@@ -60,7 +60,7 @@ export default function SearchProductsScreen () {
                 categories={categories}
                 currentCategory={category}
                 currentPrice={price}
-                currentRating={rating}
+                currentRating={ratings} // CAMBIADO: rating → ratings
                 getFilterUrl={getFilterUrl}
               />
               )}
@@ -85,7 +85,7 @@ export default function SearchProductsScreen () {
                         query={query}
                         category={category}
                         price={price}
-                        rating={rating}
+                        ratings={ratings} // CAMBIADO: rating → ratings
                         getFilterUrl={getFilterUrl}
                       />
                     </div>

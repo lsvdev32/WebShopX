@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router'
  * @param {string} param0.query - Término de búsqueda
  * @returns {JSX.Element} - Etiquetas de filtros aplicados
  */
-export default function FilterTags ({ query, category, price, rating, getFilterUrl }) {
+export default function FilterTags ({ query, category, price, ratings, getFilterUrl }) {
   // Hook para navegar a diferentes rutas
   const navigate = useNavigate()
   /**
@@ -18,7 +18,7 @@ export default function FilterTags ({ query, category, price, rating, getFilterU
     { label: 'Búsqueda', value: query, reset: { query: 'all' } },
     { label: 'Categoría', value: category, reset: { category: 'all' } },
     { label: 'Precio', value: price, reset: { price: 'all' } },
-    { label: 'Calificación', value: rating, reset: { rating: 'all' } }
+    { label: 'Calificación', value: ratings, reset: { ratings: 'all' } } // CAMBIADO: rating → ratings
   ].filter((f) => f.value !== 'all')
 
   return (
