@@ -116,7 +116,7 @@ export default function FilterSidebar ({ categories, currentCategory, currentPri
   }
 
   return (
-    <CardWrapper className='sticky top-4'>
+    <CardWrapper>
       <CardContent className='p-4'>{content}</CardContent>
     </CardWrapper>
   )
