@@ -359,3 +359,42 @@ export const getProductSearch = async (req, res) => {
     res.status(500).json({ message: error.message })
   }
 }
+
+/**
+ * Obtiene los grupos de categorías disponibles para navegación.
+ * Endpoint: GET /products/categories/groups
+ * Acceso: Público (no requiere autenticación)
+ * Retorna los 8 grupos principales de categorías con sus metadatos
+ * @param {Object} req - Objeto de petición HTTP
+ * @param {Object} res - Objeto de respuesta HTTP
+ * @returns {Array} Lista de grupos de categorías con imágenes y slugs
+ */
+export const getCategoryGroups = async (req, res) => {
+  try {
+    // Obtiene los grupos de categorías configurados
+    // Útil para mostrar en carruseles, menús de navegación, etc.
+    const groups = await productService.getCategoryGroups()
+
+    res.json(groups)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+}
+
+/**
+ * Obtiene productos filtrados por grupo de categorías.
+ * Endpoint: GET /products/group/:groupSlug
+ * Ejemplo: /products/group/tecnologia-electronica
+ * @param {Object} req - Contiene el slug del grupo en req.params.groupSlug
+ * @param {Object} res - Objeto de respuesta HTTP
+ * @returns {Array} Lista de productos que pertenecen al grupo
+ */
+export const getProductsByGroup = async (req, res) => {
+  try {
+    const products = await productService.getProductsByGroup(req.params.groupSlug)
+
+    res.json(products)
+  } catch (error) {
+    res.status(404).json({ message: error.message })
+  }
+}

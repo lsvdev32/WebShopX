@@ -1,3 +1,4 @@
+import { categoryGroupImages, getCategoriesByGroupSlug, groupedCategories } from '../config/categories.config.js'
 import Product from '../models/product.model.js'
 
 /**
@@ -317,8 +318,12 @@ export const getProductSearch = async (query) => {
     ? { name: { $regex: searchQuery, $options: 'i' } }
     : {}
 
-  // Filtro por categoría
-  const categoryFilter = category && category !== 'all' ? { category } : {}
+  // Filtro por categoría (soporta categorías múltiples separadas por comas)
+  const categoryFilter = category && category !== 'all'
+    ? category.includes(',')
+      ? { category: { $in: category.split(',') } } // Múltiples categorías (grupo)
+      : { category } // Categoría individual
+    : {}
 
   // Filtro por calificación mínima
   const ratingsFilter = ratings && ratings !== 'all'
@@ -412,4 +417,44 @@ export const updateProductStock = async (productId, quantity, session) => {
 
   product.stock += quantity
   await product.save({ session })
+}
+
+/**
+ * Obtiene los grupos de categorías con sus metadatos para mostrar en el frontend.
+ * Retorna los 8 grupos principales con imágenes y categorías hijas.
+ * Útil para carruseles de navegación y filtros por grupo.
+ * @returns {Array<Object>} Array de grupos con sus datos completos
+ */
+export const getCategoryGroups = async () => {
+  // Mapea los grupos agregando ID secuencial, imagen y URL de navegación
+  return groupedCategories.map((group, index) => ({
+    id: index + 1,
+    title: group.group,
+    slug: group.slug,
+    categories: group.items.map(item => item.value), // Solo los valores de categorías
+    imageSrc: categoryGroupImages[group.slug] || '', // Imagen del grupo
+    href: `/search?category=${group.slug}&query=all&price=all&ratings=all&order=newest&page=1`
+  }))
+}
+
+/**
+ * Obtiene productos filtrados por grupo de categorías.
+ * Útil cuando el usuario hace clic en un grupo en el carrusel del home.
+ * @param {string} groupSlug - Slug del grupo (ej: 'tecnologia-electronica')
+ * @param {Object} additionalFilters - Filtros adicionales opcionales (precio, rating, etc.)
+ * @returns {Promise<Array>} Lista de productos que pertenecen a cualquier categoría del grupo
+ */
+export const getProductsByGroup = async (groupSlug, additionalFilters = {}) => {
+  // Obtiene todas las categorías que pertenecen al grupo
+  const categories = getCategoriesByGroupSlug(groupSlug)
+
+  if (categories.length === 0) {
+    throw new Error('Grupo de categorías no encontrado')
+  }
+
+  // Busca productos que tengan cualquiera de las categorías del grupo
+  return await Product.find({
+    category: { $in: categories },
+    ...additionalFilters
+  })
 }

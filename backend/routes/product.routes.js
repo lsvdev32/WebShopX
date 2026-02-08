@@ -28,9 +28,18 @@ productsRoutes.get('/random', expressAsyncHandler(productController.getRandomPro
 productsRoutes.get('/recent', expressAsyncHandler(productController.getRecentProducts)) // GET /api/products/recent - Productos más recientes
 productsRoutes.get('/top-selling', expressAsyncHandler(productController.getSellingProducts)) // GET /api/products/top-selling - Productos más vendidos
 productsRoutes.get('/search', expressAsyncHandler(productController.getProductSearch)) // GET /api/products/search?q=telefono - Busca productos por término
+
+// === RUTAS DE CATEGORÍAS ===
+// Navegación y filtrado por categorías y grupos
+
 productsRoutes.get('/categories', expressAsyncHandler(productController.getCategories)) // GET /api/products/categories - Lista todas las categorías disponibles
-productsRoutes.get('/link/:link', expressAsyncHandler(productController.getProductByLink)) // GET /api/products/link/iphone-14 - Obtiene producto por URL amigable
+productsRoutes.get('/categories/groups', expressAsyncHandler(productController.getCategoryGroups)) // GET /api/products/categories/groups - Obtiene grupos de categorías con metadatos
+productsRoutes.get('/group/:groupSlug', expressAsyncHandler(productController.getProductsByGroup)) // GET /api/products/group/tecnologia-electronica - Productos de un grupo de categorías
 productsRoutes.get('/category/:category', expressAsyncHandler(productController.getProductsByCategory)) // GET /api/products/category/smartphones - Productos de una categoría
+
+// === RUTAS DE PRODUCTOS INDIVIDUALES ===
+
+productsRoutes.get('/link/:link', expressAsyncHandler(productController.getProductByLink)) // GET /api/products/link/iphone-14 - Obtiene producto por URL amigable
 productsRoutes.get('/:id', expressAsyncHandler(productController.getProductById))// GET /api/products/123 - Obtiene un producto específico por ID
 
 // === RUTAS DE REVIEWS ===

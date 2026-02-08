@@ -131,7 +131,7 @@ export default function CategoryCarouselSection ({ categories, loading, error })
                       <CarouselContent>
                         {categoryPages.map((page, pageIndex) => (
                           <CarouselItem key={pageIndex} className='p-6'>
-                            <div className='grid grid-cols-1 sm:grid-rows-3 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+                            <div className='grid grid-cols-1 sm:grid-rows-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
                               {page.map((category) => (
                                 <CategoryCard
                                   key={category.id}
