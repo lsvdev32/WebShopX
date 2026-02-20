@@ -3,19 +3,6 @@ import Product from '../models/product.model.js'
 import User from '../models/user.model.js'
 
 /**
- * SERVICIO DE ÓRDENES/PEDIDOS
- * Este archivo contiene toda la lógica de negocio relacionada con órdenes de compra.
- * Maneja operaciones CRUD, cálculos de inventario, actualizaciones de estado,
- * y generación de reportes estadísticos para el dashboard administrativo.
- *
- * Responsabilidades principales:
- * - Gestión completa del ciclo de vida de órdenes
- * - Control de inventario automático
- * - Cálculos financieros y estadísticas
- * - Validaciones de negocio
- */
-
-/**
  * Obtiene todas las órdenes del sistema con información del usuario.
  * Utilizado en el panel administrativo para gestión de pedidos.
  * @returns {Promise<Array>} Lista de órdenes ordenadas por fecha descendente

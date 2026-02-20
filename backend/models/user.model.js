@@ -1,10 +1,3 @@
-/**
- * ===================================
- * USER MODEL (user.model.js)
- * ===================================
- * Define la estructura de usuarios del sistema
- */
-
 import mongoose from 'mongoose'
 
 /**

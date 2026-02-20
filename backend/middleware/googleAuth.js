@@ -1,21 +1,5 @@
 import { OAuth2Client } from 'google-auth-library'
 
-/**
- * MIDDLEWARE DE AUTENTICACIÓN GOOGLE OAUTH
- * Este archivo maneja la verificación de tokens de Google para autenticación OAuth.
- * Permite a los usuarios iniciar sesión usando sus cuentas de Google.
- *
- * Flujo de Google OAuth:
- * 1. Frontend obtiene token de Google usando Google API
- * 2. Cliente envía token a nuestro servidor
- * 3. Middleware verifica token con Google
- * 4. Si es válido, extrae datos del usuario y continúa
- *
- * Requisitos de configuración:
- * - GOOGLE_CLIENT_ID debe estar configurado en variables de entorno
- * - Proyecto debe estar configurado en Google Cloud Console
- */
-
 // Cliente OAuth2 de Google inicializado con el ID de cliente de la aplicación
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID)
 

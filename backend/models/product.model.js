@@ -1,10 +1,3 @@
-/**
- * ===================================
- * PRODUCT MODEL (product.model.js)
- * ===================================
- * Define la estructura de productos en la tienda
- */
-
 import mongoose from 'mongoose'
 
 /**

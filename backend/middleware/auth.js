@@ -1,18 +1,6 @@
 import jwt from 'jsonwebtoken'
 
 /**
- * MIDDLEWARE DE AUTENTICACIÓN Y AUTORIZACIÓN
- * Este archivo contiene funciones para manejar la autenticación JWT y autorización de usuarios.
- * Se utiliza para proteger rutas y verificar permisos de administrador.
- *
- * Flujo de autenticación:
- * 1. Usuario inicia sesión y recibe un JWT token
- * 2. Cliente envía token en header Authorization: "Bearer <token>"
- * 3. Middleware verifica token y agrega datos del usuario a req.user
- * 4. Rutas protegidas pueden acceder a req.user
- */
-
-/**
  * Genera un token JWT para un usuario autenticado.
  * Se ejecuta después del login exitoso o registro.
  * @param {Object} user - Objeto del usuario con datos a incluir en el token
@@ -31,7 +19,7 @@ export const generateToken = (user) => {
       email: user.email,
       isAdmin: user.isAdmin
     },
-    process.env.JWT_SECRET, // Clave secreta para firmar el token (debe estar en .env)
+    process.env.JWT_SECRET, // Clave secreta para firmar el token
     {
       expiresIn: '30d' // Token válido por 30 días
     }
@@ -86,6 +74,6 @@ export const isAdmin = (req, res, next) => {
     next() // Usuario es admin: continúa
   } else {
     // Usuario no es admin o no está autenticado
-    res.status(401).send({ message: 'Token de administrador inválido' }) // <- Corregido tilde
+    res.status(401).send({ message: 'Token de administrador inválido' })
   }
 }

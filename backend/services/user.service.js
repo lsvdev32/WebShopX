@@ -4,21 +4,6 @@ import { Resend } from 'resend'
 import { generateToken } from '../middleware/auth.js'
 import User from '../models/user.model.js'
 
-/**
- * SERVICIO DE USUARIOS
- * Este archivo contiene toda la lógica de negocio relacionada con usuarios del sistema.
- * Maneja autenticación, registro, perfiles, recuperación de contraseñas, OAuth con Google,
- * y operaciones administrativas de gestión de usuarios.
- *
- * Responsabilidades principales:
- * - Autenticación y autorización
- * - Gestión de perfiles de usuario
- * - Recuperación de contraseñas con tokens seguros
- * - Integración con Google OAuth
- * - Envío de emails transaccionales
- * - Validaciones de seguridad y negocio
- */
-
 // Inicialización de servicios externos
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID)
 const resend = new Resend(process.env.RESEND_API_KEY)

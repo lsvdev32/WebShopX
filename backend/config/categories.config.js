@@ -1,12 +1,4 @@
 /**
- * ===================================
- * CONFIGURACIÓN DE CATEGORÍAS
- * ===================================
- * Define la estructura de categorías agrupadas para productos
- * Utilizado tanto para formularios de creación como para navegación
- */
-
-/**
  * Categorías organizadas por grupos
  * Cada grupo contiene múltiples categorías relacionadas
  */

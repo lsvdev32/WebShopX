@@ -1,18 +1,6 @@
 import * as productService from '../services/product.service.js'
 
 /**
- * CONTROLADOR DE PRODUCTOS
- * Este archivo maneja todas las operaciones CRUD relacionadas con productos del e-commerce.
- * Incluye funcionalidades para catálogo público, administración, búsquedas,
- * categorías, reseñas y diferentes vistas de productos.
- *
- * Tipos de endpoints:
- * - Públicos: Accesibles por todos los usuarios
- * - Privados: Requieren autenticación
- * - Admin: Solo para administradores
- */
-
-/**
  * Obtiene todos los productos disponibles en el catálogo público.
  * Endpoint: GET /products
  * Acceso: Público (no requiere autenticación)

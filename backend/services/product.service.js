@@ -1,20 +1,6 @@
 import { categoryGroupImages, getCategoriesByGroupSlug, groupedCategories } from '../config/categories.config.js'
 import Product from '../models/product.model.js'
 
-/**
- * SERVICIO DE PRODUCTOS
- * Este archivo contiene toda la lógica de negocio relacionada con productos del e-commerce.
- * Incluye operaciones CRUD, búsquedas avanzadas, gestión de reseñas, categorización,
- * y diferentes vistas optimizadas para distintas necesidades del frontend.
- *
- * Responsabilidades principales:
- * - Gestión completa del catálogo de productos
- * - Sistema de reseñas y calificaciones
- * - Búsquedas y filtrado avanzado
- * - Paginación y optimización de consultas
- * - Validaciones de negocio
- */
-
 // Constante para paginación por defecto
 const PAGE_SIZE = 6
 

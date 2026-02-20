@@ -3,17 +3,6 @@ import streamifier from 'streamifier'
 import '../utils/cloudinary.config.js'
 
 /**
- * SERVICIO DE UPLOAD/SUBIDA DE ARCHIVOS
- * Este archivo maneja la lógica de negocio para subir archivos a servicios de almacenamiento en la nube.
- * Utiliza Cloudinary como proveedor de almacenamiento y streamifier para convertir buffers en streams.
- *
- * Responsabilidades:
- * - Conversión de archivos buffer a streams
- * - Subida a Cloudinary con configuración optimizada
- * - Manejo de errores de upload
- */
-
-/**
  * Sube un archivo a Cloudinary usando streams para manejar archivos grandes eficientemente.
  * Convierte el buffer del archivo (de multer) en un stream y lo procesa con Cloudinary.
  * @param {Object} file - Archivo procesado por multer middleware

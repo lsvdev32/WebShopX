@@ -1,10 +1,3 @@
-/**
- * ===================================
- * ORDER MODEL (order.model.js)
- * ===================================
- * Define la estructura de las órdenes/pedidos en MongoDB
- */
-
 import mongoose from 'mongoose'
 
 /**

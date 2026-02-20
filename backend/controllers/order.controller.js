@@ -1,19 +1,6 @@
 import * as orderService from '../services/order.service.js'
 
 /**
- * CONTROLADOR DE ÓRDENES/PEDIDOS
- * Este archivo maneja todas las operaciones relacionadas con órdenes de compra en el e-commerce.
- * Incluye funcionalidades para crear, leer, actualizar y eliminar órdenes,
- * así como manejo de estados de pago y entrega.
- *
- * Estados típicos de una orden:
- * - Creada: Orden recién generada
- * - Pagada: Pago confirmado
- * - Enviada: En proceso de entrega
- * - Entregada: Completada exitosamente
- */
-
-/**
  * Obtiene todas las órdenes del sistema (solo para administradores).
  * Endpoint: GET /orders
  * Requiere permisos de administrador

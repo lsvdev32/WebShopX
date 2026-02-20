@@ -1,10 +1,3 @@
-/**
- * ===================================
- * UPLOAD ROUTES (upload.routes.js)
- * ===================================
- * Maneja la subida de archivos/imágenes
- */
-
 import express from 'express'
 import multer from 'multer'
 import { uploadImage } from '../controllers/upload.controller.js'
@@ -15,8 +8,7 @@ const uploadRouter = express.Router()
 // Configuración de multer para manejar archivos en memoria
 const upload = multer()
 
-uploadRouter.post('/', isAuth, isAdmin, upload.single('file'), uploadImage)
-// POST /api/upload/ - Sube una imagen (solo administradores)
+uploadRouter.post('/', isAuth, isAdmin, upload.single('file'), uploadImage) // Sube una imagen (solo administradores)
 // upload.single('file') - Procesa un archivo con nombre 'file'
 
 export default uploadRouter

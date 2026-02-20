@@ -1,17 +1,6 @@
 import * as userService from '../services/user.service.js'
 
 /**
- * CONTROLADOR DE USUARIOS
- * Este archivo contiene todas las funciones que manejan las peticiones HTTP relacionadas con usuarios.
- * Cada función actúa como intermediaria entre las rutas (routes) y los servicios (services).
- *
- * Patrón utilizado: Controller -> Service -> Model
- * - Controller: Maneja la petición HTTP y la respuesta
- * - Service: Contiene la lógica de negocio
- * - Model: Interactúa con la base de datos
- */
-
-/**
  * Obtiene todos los usuarios registrados en el sistema.
  * Endpoint: GET /users
  * @param {Object} req - Objeto de petición HTTP (request)
