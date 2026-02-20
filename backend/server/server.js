@@ -39,16 +39,27 @@ app.use(
 app.disable('x-powered-by') // Oculta la información del servidor
 
 // Configuración de CORS
+const allowedOrigins = [
+  'http://localhost:5173', // Frontend local
+  'http://localhost:5174', // Frontend local alternativo
+  process.env.FRONTEND_URL // URL de producción desde variable de entorno
+].filter(Boolean)
+
 app.use(
   cors({
-    origin: [
-      'http://localhost:5173', // Dominio del frontend de desarrollo (Vite)
-      'https://frontend-webshopx-production.up.railway.app' // Dominio el frontend de produccion
-    ],
-    // methods: Métodos HTTP permitidos
-    methods: 'GET,HEAD,POST,PUT,PATCH,DELETE', // Lista de métodos HTTP que acepta el servidor
-    // credentials: Permite envío de cookies y headers de autenticación
-    credentials: true // Necesario para JWT tokens y sesiones
+    origin: (origin, callback) => {
+      // Permite peticiones sin origin (Postman, apps móviles, etc.)
+      if (!origin) return callback(null, true)
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true)
+      } else {
+        callback(new Error('No permitido por CORS'))
+      }
+    },
+    methods: ['GET', 'HEAD', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    credentials: true,
+    optionsSuccessStatus: 200
   })
 )
 
@@ -60,20 +71,17 @@ app.use('/api/users', userRoutes) // Todas las rutas de usuarios
 app.use('/api/orders', orderRoutes) // Todas las rutas de órdenes
 app.use('/api/upload', uploadRouter) // Todas las rutas de carga de archivos
 app.use('/api/products', productsRoutes) // Todas las rutas de productos
-
-// Ruta especial para PayPal
-/**
- * Endpoint específico para obtener el Client ID de PayPal
- * Esta ruta no está en un archivo separado porque es muy simple y específica
- *
- * @route GET /api/keys/paypal
- * @desc Obtiene el Client ID público de PayPal para el frontend
- * @access Público (no requiere autenticación)
- */
 app.get('/api/keys/paypal', (req, res) => {
-  // process.env.PAYPAL_CLIENT_ID viene del archivo .env
-  // Si no existe, devuelve 'sb' (sandbox) como fallback para desarrollo
   res.send(process.env.PAYPAL_CLIENT_ID || 'sb')
+})
+
+// Usado por UptimeRobot y para verificar que el servidor está vivo
+app.get('/api/health', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  })
 })
 
 // Manejo global de errores
