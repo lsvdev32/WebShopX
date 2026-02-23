@@ -42,7 +42,8 @@ app.disable('x-powered-by') // Oculta la información del servidor
 const allowedOrigins = [
   'http://localhost:5173', // Frontend local
   'http://localhost:5174', // Frontend local alternativo
-  process.env.FRONTEND_URL // URL de producción desde variable de entorno
+  // process.env.FRONTEND_URL // URL de producción desde variable de entorno
+  'https://web-shop-x.vercel.app'
 ].filter(Boolean)
 
 app.use(
